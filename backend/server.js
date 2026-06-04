@@ -6,6 +6,7 @@ const path = require("node:path");
 const crypto = require("node:crypto");
 
 const PORT = Number(process.env.PORT || 3000);
+const HOST = process.env.HOST || "0.0.0.0";
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN || "admin123";
 const ROOT_DIR = path.resolve(__dirname, "..");
 const FRONTEND_DIR = path.join(ROOT_DIR, "frontend");
@@ -435,7 +436,8 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, "127.0.0.1", () => {
+server.listen(PORT, HOST, () => {
   console.log(`Portfolio app running at http://127.0.0.1:${PORT}`);
+  console.log(`Same Wi-Fi devices can use http://YOUR-LAPTOP-IP:${PORT}`);
   console.log(`Admin token: ${ADMIN_TOKEN}`);
 });

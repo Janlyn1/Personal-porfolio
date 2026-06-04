@@ -26,6 +26,40 @@ Open:
 http://127.0.0.1:3000
 ```
 
+## Open on Phone, Tablet, or Laptop
+
+You now have three options:
+
+1. Direct HTML:
+
+```text
+frontend/index.html
+```
+
+This works even without the backend because `frontend/js/script.js` has built-in fallback portfolio data.
+
+2. Same Wi-Fi local server:
+
+```powershell
+node backend/server.js
+```
+
+Then open this on another device connected to the same Wi-Fi:
+
+```text
+http://YOUR-LAPTOP-IP:3000
+```
+
+Example:
+
+```text
+http://192.168.1.10:3000
+```
+
+3. Vercel:
+
+Deploy the project to Vercel, then open the Vercel URL on any phone, tablet, or laptop.
+
 ## API
 
 ```text

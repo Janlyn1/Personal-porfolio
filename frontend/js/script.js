@@ -6,6 +6,133 @@ const state = {
   galaxyCleanup: null
 };
 
+const FALLBACK_PORTFOLIO = {
+  profile: {
+    name: "Janlyn B. Rustila",
+    brand: "rustila.dev",
+    role: "BS Computer Engineering Student",
+    headline: "Embedded Systems | AI + Robotics | IoT",
+    summary: "I build practical engineering systems that connect hardware, software, and real-world workflows. My work spans embedded development, robotics, AI-assisted tools, networking, and automation.",
+    status: "available for OJT",
+    location: "San Juan, Alaminos Laguna",
+    phone: "+63 976 353 2039",
+    email: "Rustilajanlyn@gmail.com",
+    school: "LPU Laguna",
+    focus: ["Embedded prototypes", "AI-assisted systems", "Networked automation"],
+    socials: [
+      { label: "LinkedIn", url: "https://www.linkedin.com/in/janlyn-rustila-04abb9206/", primary: true },
+      { label: "Email me", url: "mailto:Rustilajanlyn@gmail.com", primary: false }
+    ]
+  },
+  integrations: {
+    appsScript: {
+      scriptId: "1Zq5yESFCb3UuwvvNcC9fGU13Tq-5YkoPUTr2cfJ8xqVepZqkPreO4hKg",
+      deploymentId: "",
+      webAppUrl: ""
+    }
+  },
+  stats: [
+    { value: "6", label: "projects built", order: 1 },
+    { value: "14", label: "certifications", order: 2 },
+    { value: "2", label: "leadership roles", order: 3 },
+    { value: "OJT", label: "ready", order: 4 }
+  ],
+  experience: [
+    {
+      role: "YouTube Editor",
+      company: "Remote Work",
+      period: "Jan 2021 - July 2021",
+      description: "Produced and edited video content aligned with brand standards. Managed asset organization, backups, editing workflows, publishing schedules, basic reporting, and performance checks for continuous content improvement.",
+      tags: ["video production", "workflow management", "content scheduling", "performance monitoring", "remote work"],
+      order: 1
+    }
+  ],
+  projects: [
+    {
+      title: "CampusVital: Smart Health Monitoring Kiosk",
+      type: "thesis project | embedded systems | IoT",
+      description: "A self-service campus kiosk for monitoring basic health vitals. Integrated sensors and embedded systems to measure vital signs, display real-time feedback, and support proactive student wellness through practical health technology.",
+      tags: ["Raspberry Pi", "Embedded Systems", "Sensors", "Health IoT"],
+      featured: true,
+      order: 1
+    },
+    {
+      title: "SumoBot - Autonomous Sumo Robot",
+      type: "autonomous robotics | embedded logic",
+      description: "Designed and built an autonomous sumo robot capable of opponent detection and strategic movement. Integrated sensors, motor control, and embedded logic for competitive robot behavior.",
+      tags: ["Motor Control", "Sensors", "Embedded C"],
+      featured: false,
+      order: 2
+    },
+    {
+      title: "Line-Following Robot",
+      type: "robotics | real-time control",
+      description: "Developed a line-following robot using sensors and embedded control logic for accurate path tracking. Implemented real-time motor decisions to improve navigation consistency.",
+      tags: ["Sensors", "Real-Time Logic", "Embedded"],
+      featured: false,
+      order: 3
+    },
+    {
+      title: "AI Skin Disease Scanner",
+      type: "AI | machine learning | Raspberry Pi",
+      description: "Built an AI-powered skin condition scanner for psoriasis and eczema support using Raspberry Pi and a trained ML model. Applied image processing and inference workflows for early detection assistance.",
+      tags: ["Raspberry Pi", "Python", "ML Model", "AI"],
+      featured: false,
+      order: 4
+    },
+    {
+      title: "Smart Security System (ESP + Telegram Auth)",
+      type: "IoT | security | real-time auth",
+      description: "Built an embedded smart security prototype using Raspberry Pi, ESP components, and Telegram-based authentication. Visitor-triggered requests are sent to the homeowner for real-time approval and monitoring.",
+      tags: ["ESP32", "Raspberry Pi", "Telegram API", "IoT"],
+      featured: false,
+      order: 5
+    },
+    {
+      title: "Real-Time Grocery Stock Monitor",
+      type: "Python | automation | computer vision",
+      description: "Created a Python-based QR and barcode scanning workflow for grocery item identification and data processing. Automated product lookup through image capture, decoding, and structured item retrieval.",
+      tags: ["Python", "Computer Vision", "Automation"],
+      featured: false,
+      order: 6
+    }
+  ],
+  skills: [
+    { title: "Embedded & Hardware", items: ["Embedded Systems", "Raspberry Pi", "Microcontrollers", "Hardware-Software Integration", "Robotics"], order: 1 },
+    { title: "Programming", items: ["Python", "C++", "Java", "SQL", "Visual Basic", "HTML/CSS"], order: 2 },
+    { title: "AI & Networking", items: ["AI Development", "Machine Learning", "Automation", "Cisco Networking", "Data Analytics"], order: 3 },
+    { title: "Platforms & Operations", items: ["Windows", "Ubuntu", "macOS", "Cybersecurity Fundamentals", "Project Coordination"], order: 4 }
+  ],
+  certifications: [
+    { id: "ibm-intro-cybersecurity", issuer: "IBM", name: "Introduction to Cybersecurity", issueDate: "2025-12", credentialUrl: "", order: 1 },
+    { id: "ibm-machine-learning-python", issuer: "IBM", name: "Machine Learning with Python", issueDate: "2025-12", credentialUrl: "", order: 2 },
+    { id: "cisco-ccna-srwe", issuer: "CISCO", name: "CCNA: Switching, Routing & Wireless Essentials", issueDate: "2025-10", credentialUrl: "", order: 3 },
+    { id: "cisco-networking-devices", issuer: "CISCO", name: "Networking Devices and Initial Configuration", issueDate: "2025-05", credentialUrl: "", order: 4 },
+    { id: "cisco-data-analytics", issuer: "CISCO", name: "Data Analytics Essentials", issueDate: "2025-04", credentialUrl: "", order: 5 },
+    { id: "cisco-network-basics", issuer: "CISCO", name: "Network Basics", issueDate: "2025-04", credentialUrl: "", order: 6 },
+    { id: "cisco-pcap-python", issuer: "CISCO", name: "PCAP - Programming Essentials in Python", issueDate: "2024-05", credentialUrl: "", order: 7 },
+    { id: "itg-bosh-safety-officer", issuer: "ITG", name: "BOSH Training Course for Safety Officer", issueDate: "2024-05", credentialUrl: "", order: 8 }
+  ],
+  leadership: [
+    {
+      organization: "Mechatronics & Robotics Society of the Philippines",
+      role: "Treasurer",
+      period: "2023 - Present",
+      description: "Managed organizational funds, budgeting, and financial planning for projects, events, and activities. Maintained accurate financial records and collaborated with officers for resource allocation and timely decisions.",
+      tags: ["Finance", "Budgeting", "Leadership"],
+      order: 1
+    },
+    {
+      organization: "LPU Pirates Esports",
+      role: "Auditor",
+      period: "2023 - 2024",
+      description: "Reviewed financial records for accuracy, transparency, and compliance with organization policies. Assisted with budget evaluation, expense tracking, and financial reporting for esports activities.",
+      tags: ["Audit", "Financial Compliance", "Reporting"],
+      order: 2
+    }
+  ]
+};
+
 const $ = selector => document.querySelector(selector);
 
 function create(tag, options = {}, children = []) {
@@ -216,9 +343,18 @@ function openCertificate(cert) {
 }
 
 async function loadPortfolio() {
-  const response = await fetch("/api/portfolio", { headers: { Accept: "application/json" } });
-  if (!response.ok) throw new Error(`API request failed with ${response.status}`);
-  return response.json();
+  if (window.location.protocol === "file:") {
+    return normalizeClientPortfolio(FALLBACK_PORTFOLIO);
+  }
+
+  try {
+    const response = await fetch("/api/portfolio", { headers: { Accept: "application/json" } });
+    if (!response.ok) throw new Error(`API request failed with ${response.status}`);
+    return response.json();
+  } catch (error) {
+    console.warn("Using built-in portfolio fallback:", error);
+    return normalizeClientPortfolio(FALLBACK_PORTFOLIO);
+  }
 }
 
 function showFatalError(error) {
@@ -227,6 +363,60 @@ function showFatalError(error) {
     className: "error-state",
     text: `Portfolio API error: ${error.message}`
   }));
+}
+
+function clientOrder(a, b) {
+  return Number(a.order || 999) - Number(b.order || 999);
+}
+
+function clientIssueDateScore(value) {
+  const match = String(value || "").match(/^(\d{4})(?:-(\d{1,2}))?/);
+  if (!match) return 0;
+  return Number(match[1]) * 100 + Number(match[2] || 1);
+}
+
+function clientDisplayIssueDate(value) {
+  const match = String(value || "").match(/^(\d{4})(?:-(\d{1,2}))?/);
+  if (!match) return value || "";
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const monthIndex = Math.max(0, Math.min(11, Number(match[2] || 1) - 1));
+  return `${months[monthIndex]} ${match[1]}`;
+}
+
+function normalizeClientPortfolio(data) {
+  const copy = JSON.parse(JSON.stringify(data));
+  const appsScript = copy.integrations?.appsScript || {};
+  const scriptId = appsScript.scriptId || "";
+  const deploymentId = appsScript.deploymentId || "";
+  const webAppUrl = appsScript.webAppUrl || "";
+  const webAppId = deploymentId || scriptId;
+
+  copy.integrations = {
+    ...(copy.integrations || {}),
+    appsScript: {
+      ...appsScript,
+      scriptId,
+      deploymentId,
+      webAppUrl,
+      editUrl: scriptId ? `https://script.google.com/d/${encodeURIComponent(scriptId)}/edit` : "",
+      candidateWebAppUrl: webAppId ? `https://script.google.com/macros/s/${encodeURIComponent(webAppId)}/exec` : "",
+      syncReady: Boolean(webAppUrl || deploymentId)
+    }
+  };
+
+  copy.stats = [...(copy.stats || [])].sort(clientOrder);
+  copy.experience = [...(copy.experience || [])].sort(clientOrder);
+  copy.skills = [...(copy.skills || [])].sort(clientOrder);
+  copy.leadership = [...(copy.leadership || [])].sort(clientOrder);
+  copy.projects = [...(copy.projects || [])].sort((a, b) => {
+    if (Boolean(a.featured) !== Boolean(b.featured)) return a.featured ? -1 : 1;
+    return clientOrder(a, b) || String(a.title || "").localeCompare(String(b.title || ""));
+  });
+  copy.certifications = [...(copy.certifications || [])]
+    .map(cert => ({ ...cert, displayDate: clientDisplayIssueDate(cert.issueDate) }))
+    .sort((a, b) => clientIssueDateScore(b.issueDate) - clientIssueDateScore(a.issueDate) || clientOrder(a, b));
+
+  return copy;
 }
 
 async function addCertificate() {

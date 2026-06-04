@@ -9,8 +9,9 @@
   --soft:#d9e1e5;
   --muted:#a7b1b8;
   --accent:#b7f34a;
-  --cyan:#62dfcf;
+  --cyan:#69d8ff;
   --amber:#f0b35a;
+  --rose:#ff9b92;
   --danger:#ff7d7d;
   --shadow:0 24px 70px rgba(0,0,0,.36);
   --sans:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -93,11 +94,25 @@ button,a{touch-action:manipulation}
 .nav-links a:hover{background:rgba(255,255,255,.05);color:var(--text);border-color:var(--line)}
 .status{display:flex;align-items:center;gap:8px;color:var(--soft);font-family:var(--mono);font-size:.76rem;white-space:nowrap}
 .status span{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px rgba(183,243,74,.5)}
-.hero{padding:112px 0 40px}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(330px,.72fr);gap:56px;align-items:center}
+.hero{padding:120px 0 44px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(330px,.72fr);gap:56px;align-items:start}
 .eyebrow{margin-bottom:20px;color:var(--cyan);font-family:var(--mono);font-size:.84rem;font-weight:700}
 h1{max-width:760px;font-size:5rem;line-height:.96;font-weight:800;margin-bottom:24px}
 h1 span{display:block;color:var(--accent)}
+.hero-kicker{
+  display:inline-flex;
+  max-width:100%;
+  border:1px solid rgba(105,216,255,.24);
+  border-radius:999px;
+  background:rgba(105,216,255,.07);
+  color:#dff8ff;
+  padding:7px 12px;
+  margin-bottom:18px;
+  font-family:var(--mono);
+  font-size:.78rem;
+  font-weight:800;
+  line-height:1.45;
+}
 .hero-summary{max-width:660px;color:var(--soft);font-size:1.08rem;line-height:1.8;margin-bottom:30px}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px}
 .button{
@@ -124,7 +139,7 @@ h1 span{display:block;color:var(--accent)}
   min-height:74px;
   border:1px solid var(--line);
   border-radius:8px;
-  background:rgba(14,18,23,.62);
+  background:rgba(14,18,23,.7);
   padding:14px;
 }
 .focus-card small{display:block;color:var(--muted);font-family:var(--mono);font-size:.72rem;margin-bottom:4px}
@@ -154,13 +169,14 @@ h1 span{display:block;color:var(--accent)}
 .lights span:nth-child(2){background:#f5c85c}
 .system-list{display:grid;gap:1px;background:var(--line)}
 .system-list article{display:grid;gap:4px;background:rgba(14,18,23,.94);padding:14px 16px}
-.system-list strong{font-size:.94rem}
+.system-list strong{font-size:.94rem;color:var(--text)}
 .system-list span{color:var(--muted);font-size:.83rem;line-height:1.48}
 .stats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
 .stat-card{min-height:88px;padding:14px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.025)}
 .stat-card strong{display:block;color:var(--accent);font-size:1.78rem;line-height:1;margin-bottom:6px}
 .stat-card span{color:var(--muted);font-family:var(--mono);font-size:.76rem}
 .band{padding:84px 0}
+.fit-band{padding-top:46px}
 .section-label{
   display:grid;
   grid-template-columns:auto 1fr;
@@ -175,17 +191,33 @@ h1 span{display:block;color:var(--accent)}
 }
 .section-label::after{content:"";height:1px;background:var(--line)}
 .stack{display:grid;gap:14px}
-.card,.project-card,.skill-card,.cert-card,.lead-card{
+.card,.project-card,.skill-card,.cert-card,.lead-card,.value-card{
   border:1px solid var(--line);
   border-radius:8px;
   background:rgba(14,18,23,.76);
   transition:transform .2s ease,border-color .2s ease,background .2s ease;
 }
-.card:hover,.project-card:hover,.skill-card:hover,.cert-card:hover,.lead-card:hover{
+.card:hover,.project-card:hover,.skill-card:hover,.cert-card:hover,.lead-card:hover,.value-card:hover{
   transform:translateY(-3px);
   border-color:rgba(98,223,207,.32);
   background:rgba(18,24,31,.88);
 }
+.value-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.value-card{
+  min-height:230px;
+  padding:24px;
+  background:linear-gradient(180deg,rgba(105,216,255,.08),rgba(14,18,23,.8));
+}
+.value-card small{
+  display:block;
+  color:var(--accent);
+  font-family:var(--mono);
+  font-size:.72rem;
+  font-weight:800;
+  margin-bottom:16px;
+}
+.value-card h3{font-size:1.18rem;line-height:1.28;margin-bottom:12px}
+.value-card p{color:var(--soft);font-size:.96rem;line-height:1.75}
 .card{padding:24px}
 .meta{color:var(--muted);font-family:var(--mono);font-size:.78rem;margin-bottom:10px}
 .card h3,.project-card h3,.lead-card h3{font-size:1.24rem;line-height:1.25;margin-bottom:10px}
@@ -207,7 +239,7 @@ h1 span{display:block;color:var(--accent)}
 .project-card,.lead-card{padding:24px}
 .project-card.featured{grid-column:1/-1;border-color:rgba(183,243,74,.35);background:linear-gradient(180deg,rgba(183,243,74,.08),rgba(14,18,23,.82))}
 .project-card.featured::before{
-  content:"THESIS";
+  content:"FEATURED THESIS";
   min-height:28px;
   display:inline-flex;
   align-items:center;
@@ -219,6 +251,30 @@ h1 span{display:block;color:var(--accent)}
   font-family:var(--mono);
   font-size:.7rem;
   font-weight:800;
+}
+.impact-list{
+  display:grid;
+  gap:8px;
+  list-style:none;
+  margin-top:16px;
+  color:var(--soft);
+  font-size:.9rem;
+  line-height:1.55;
+}
+.impact-list li{
+  position:relative;
+  padding-left:18px;
+}
+.impact-list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.62em;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--amber);
+  box-shadow:0 0 12px rgba(240,179,90,.45);
 }
 .skills-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .skill-card{padding:20px}
@@ -278,6 +334,9 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-f
   bottom:18px;
   z-index:300;
   min-height:44px;
+  display:none;
+  align-items:center;
+  justify-content:center;
   border:0;
   border-radius:8px;
   background:var(--accent);
@@ -289,6 +348,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-f
   cursor:pointer;
   box-shadow:0 16px 34px rgba(0,0,0,.34);
 }
+.admin-toggle.visible{display:inline-flex}
 .admin-panel{
   position:fixed;
   right:18px;
@@ -378,6 +438,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-f
 @media(max-width:980px){
   .hero-grid{grid-template-columns:1fr;gap:32px}
   h1{font-size:4rem}
+  .value-grid{grid-template-columns:1fr}
   .skills-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cert-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }

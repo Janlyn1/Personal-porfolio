@@ -7,128 +7,358 @@ const state = {
 };
 
 const FALLBACK_PORTFOLIO = {
-  profile: {
-    name: "Janlyn B. Rustila",
-    brand: "rustila.dev",
-    role: "BS Computer Engineering Student",
-    headline: "Embedded Systems | AI + Robotics | IoT",
-    summary: "I build practical engineering systems that connect hardware, software, and real-world workflows. My work spans embedded development, robotics, AI-assisted tools, networking, and automation.",
-    status: "available for OJT",
-    location: "San Juan, Alaminos Laguna",
-    phone: "+63 976 353 2039",
-    email: "Rustilajanlyn@gmail.com",
-    school: "LPU Laguna",
-    focus: ["Embedded prototypes", "AI-assisted systems", "Networked automation"],
-    socials: [
-      { label: "LinkedIn", url: "https://www.linkedin.com/in/janlyn-rustila-04abb9206/", primary: true },
-      { label: "Email me", url: "mailto:Rustilajanlyn@gmail.com", primary: false }
+  "profile": {
+    "name": "Janlyn B. Rustila",
+    "brand": "rustila.dev",
+    "role": "Computer Engineering OJT Candidate",
+    "headline": "Embedded Systems | AI + Robotics | IoT",
+    "summary": "Computer Engineering student who builds working prototypes across embedded systems, robotics, AI, networking, and automation. I am looking for an OJT role where I can help turn technical requirements into tested, documented, real-world solutions while learning from an engineering team.",
+    "status": "open for OJT / internship",
+    "location": "San Juan, Alaminos, Laguna, Philippines",
+    "phone": "+63 976 353 2039",
+    "email": "Rustilajanlyn@gmail.com",
+    "school": "Lyceum of the Philippines University - Laguna",
+    "focus": [
+      "Embedded + IoT prototyping",
+      "Python automation + AI workflows",
+      "Documentation + reliable delivery"
+    ],
+    "valueProps": [
+      {
+        "title": "Hands-on prototype builder",
+        "description": "Comfortable turning ideas into working systems using sensors, Raspberry Pi, microcontrollers, and real-time control logic."
+      },
+      {
+        "title": "Software-minded engineer",
+        "description": "Uses Python, C++, Java, SQL, and web fundamentals to connect hardware outputs to useful workflows, data, and interfaces."
+      },
+      {
+        "title": "Organized OJT teammate",
+        "description": "Brings leadership experience, careful documentation, and a learning mindset suited for engineering teams and technical operations."
+      }
+    ],
+    "snapshot": [
+      {
+        "label": "Best fit",
+        "value": "Embedded systems, IoT, robotics, AI tools, networking, or technical support roles."
+      },
+      {
+        "label": "Can contribute",
+        "value": "Prototype testing, automation scripts, sensor workflows, data cleanup, technical documentation, and troubleshooting."
+      },
+      {
+        "label": "Work style",
+        "value": "Curious, detail-oriented, dependable, and willing to iterate until the system works."
+      }
+    ],
+    "contactPitch": "Available for OJT, internship, and entry-level project collaboration in embedded systems, software, AI, IoT, networking, and technical operations.",
+    "socials": [
+      {
+        "label": "View LinkedIn",
+        "url": "https://www.linkedin.com/in/janlyn-rustila-04abb9206/",
+        "primary": true
+      },
+      {
+        "label": "Email for Interview",
+        "url": "mailto:Rustilajanlyn@gmail.com",
+        "primary": false
+      }
     ]
   },
-  integrations: {
-    appsScript: {
-      scriptId: "1Zq5yESFCb3UuwvvNcC9fGU13Tq-5YkoPUTr2cfJ8xqVepZqkPreO4hKg",
-      deploymentId: "",
-      webAppUrl: ""
+  "integrations": {
+    "appsScript": {
+      "scriptId": "1Zq5yESFCb3UuwvvNcC9fGU13Tq-5YkoPUTr2cfJ8xqVepZqkPreO4hKg",
+      "deploymentId": "",
+      "webAppUrl": "",
+      "description": "Google Apps Script source for portfolio certificates/content. Add a deployed web app URL here when available."
     }
   },
-  stats: [
-    { value: "6", label: "projects built", order: 1 },
-    { value: "14", label: "certifications", order: 2 },
-    { value: "2", label: "leadership roles", order: 3 },
-    { value: "OJT", label: "ready", order: 4 }
-  ],
-  experience: [
+  "stats": [
     {
-      role: "YouTube Editor",
-      company: "Remote Work",
-      period: "Jan 2021 - July 2021",
-      description: "Produced and edited video content aligned with brand standards. Managed asset organization, backups, editing workflows, publishing schedules, basic reporting, and performance checks for continuous content improvement.",
-      tags: ["video production", "workflow management", "content scheduling", "performance monitoring", "remote work"],
-      order: 1
+      "value": "6",
+      "label": "engineering projects",
+      "note": "Embedded, robotics, AI, security, and automation prototypes.",
+      "order": 1
+    },
+    {
+      "value": "8",
+      "label": "certifications listed",
+      "note": "Cisco, IBM, safety, analytics, networking, and cybersecurity training.",
+      "order": 2
+    },
+    {
+      "value": "3",
+      "label": "technical domains",
+      "note": "Hardware integration, software automation, and network-aware systems.",
+      "order": 3
+    },
+    {
+      "value": "OJT",
+      "label": "interview ready",
+      "note": "Prepared to contribute, document, test, and learn with a technical team.",
+      "order": 4
     }
   ],
-  projects: [
+  "experience": [
     {
-      title: "CampusVital: Smart Health Monitoring Kiosk",
-      type: "thesis project | embedded systems | IoT",
-      description: "A self-service campus kiosk for monitoring basic health vitals. Integrated sensors and embedded systems to measure vital signs, display real-time feedback, and support proactive student wellness through practical health technology.",
-      tags: ["Raspberry Pi", "Embedded Systems", "Sensors", "Health IoT"],
-      featured: true,
-      order: 1
-    },
-    {
-      title: "SumoBot - Autonomous Sumo Robot",
-      type: "autonomous robotics | embedded logic",
-      description: "Designed and built an autonomous sumo robot capable of opponent detection and strategic movement. Integrated sensors, motor control, and embedded logic for competitive robot behavior.",
-      tags: ["Motor Control", "Sensors", "Embedded C"],
-      featured: false,
-      order: 2
-    },
-    {
-      title: "Line-Following Robot",
-      type: "robotics | real-time control",
-      description: "Developed a line-following robot using sensors and embedded control logic for accurate path tracking. Implemented real-time motor decisions to improve navigation consistency.",
-      tags: ["Sensors", "Real-Time Logic", "Embedded"],
-      featured: false,
-      order: 3
-    },
-    {
-      title: "AI Skin Disease Scanner",
-      type: "AI | machine learning | Raspberry Pi",
-      description: "Built an AI-powered skin condition scanner for psoriasis and eczema support using Raspberry Pi and a trained ML model. Applied image processing and inference workflows for early detection assistance.",
-      tags: ["Raspberry Pi", "Python", "ML Model", "AI"],
-      featured: false,
-      order: 4
-    },
-    {
-      title: "Smart Security System (ESP + Telegram Auth)",
-      type: "IoT | security | real-time auth",
-      description: "Built an embedded smart security prototype using Raspberry Pi, ESP components, and Telegram-based authentication. Visitor-triggered requests are sent to the homeowner for real-time approval and monitoring.",
-      tags: ["ESP32", "Raspberry Pi", "Telegram API", "IoT"],
-      featured: false,
-      order: 5
-    },
-    {
-      title: "Real-Time Grocery Stock Monitor",
-      type: "Python | automation | computer vision",
-      description: "Created a Python-based QR and barcode scanning workflow for grocery item identification and data processing. Automated product lookup through image capture, decoding, and structured item retrieval.",
-      tags: ["Python", "Computer Vision", "Automation"],
-      featured: false,
-      order: 6
+      "role": "YouTube Editor",
+      "company": "Remote Work",
+      "period": "Jan 2021 - July 2021",
+      "description": "Produced edited video content for remote clients while managing files, deadlines, revisions, publishing schedules, and quality checks. This experience strengthened my discipline in communication, organized workflows, and delivering output with minimal supervision.",
+      "tags": [
+        "remote work",
+        "deadline management",
+        "content production",
+        "quality checks",
+        "client communication"
+      ],
+      "order": 1
     }
   ],
-  skills: [
-    { title: "Embedded & Hardware", items: ["Embedded Systems", "Raspberry Pi", "Microcontrollers", "Hardware-Software Integration", "Robotics"], order: 1 },
-    { title: "Programming", items: ["Python", "C++", "Java", "SQL", "Visual Basic", "HTML/CSS"], order: 2 },
-    { title: "AI & Networking", items: ["AI Development", "Machine Learning", "Automation", "Cisco Networking", "Data Analytics"], order: 3 },
-    { title: "Platforms & Operations", items: ["Windows", "Ubuntu", "macOS", "Cybersecurity Fundamentals", "Project Coordination"], order: 4 }
-  ],
-  certifications: [
-    { id: "ibm-intro-cybersecurity", issuer: "IBM", name: "Introduction to Cybersecurity", issueDate: "2025-12", credentialUrl: "", order: 1 },
-    { id: "ibm-machine-learning-python", issuer: "IBM", name: "Machine Learning with Python", issueDate: "2025-12", credentialUrl: "", order: 2 },
-    { id: "cisco-ccna-srwe", issuer: "CISCO", name: "CCNA: Switching, Routing & Wireless Essentials", issueDate: "2025-10", credentialUrl: "", order: 3 },
-    { id: "cisco-networking-devices", issuer: "CISCO", name: "Networking Devices and Initial Configuration", issueDate: "2025-05", credentialUrl: "", order: 4 },
-    { id: "cisco-data-analytics", issuer: "CISCO", name: "Data Analytics Essentials", issueDate: "2025-04", credentialUrl: "", order: 5 },
-    { id: "cisco-network-basics", issuer: "CISCO", name: "Network Basics", issueDate: "2025-04", credentialUrl: "", order: 6 },
-    { id: "cisco-pcap-python", issuer: "CISCO", name: "PCAP - Programming Essentials in Python", issueDate: "2024-05", credentialUrl: "", order: 7 },
-    { id: "itg-bosh-safety-officer", issuer: "ITG", name: "BOSH Training Course for Safety Officer", issueDate: "2024-05", credentialUrl: "", order: 8 }
-  ],
-  leadership: [
+  "projects": [
     {
-      organization: "Mechatronics & Robotics Society of the Philippines",
-      role: "Treasurer",
-      period: "2023 - Present",
-      description: "Managed organizational funds, budgeting, and financial planning for projects, events, and activities. Maintained accurate financial records and collaborated with officers for resource allocation and timely decisions.",
-      tags: ["Finance", "Budgeting", "Leadership"],
-      order: 1
+      "title": "CampusVital: Smart Health Monitoring Kiosk",
+      "type": "thesis project | embedded systems | IoT",
+      "description": "A self-service campus health kiosk concept that combines sensors, embedded control, and real-time user feedback for basic vital monitoring workflows.",
+      "impact": [
+        "Built around a real campus wellness use case with repeatable measurement flow.",
+        "Connects hardware readings, interface feedback, and practical health-tech workflow design."
+      ],
+      "tags": [
+        "Raspberry Pi",
+        "Embedded Systems",
+        "Sensors",
+        "Health IoT"
+      ],
+      "featured": true,
+      "order": 1
     },
     {
-      organization: "LPU Pirates Esports",
-      role: "Auditor",
-      period: "2023 - 2024",
-      description: "Reviewed financial records for accuracy, transparency, and compliance with organization policies. Assisted with budget evaluation, expense tracking, and financial reporting for esports activities.",
-      tags: ["Audit", "Financial Compliance", "Reporting"],
-      order: 2
+      "title": "SumoBot - Autonomous Sumo Robot",
+      "type": "autonomous robotics | embedded logic",
+      "description": "Designed and built an autonomous robot that detects opponents and responds with movement strategies using sensor input and motor control.",
+      "impact": [
+        "Practiced tuning real-time behavior from sensor readings to motor decisions.",
+        "Strengthened debugging skills through repeated physical testing and adjustment."
+      ],
+      "tags": [
+        "Motor Control",
+        "Sensors",
+        "Embedded C"
+      ],
+      "featured": false,
+      "order": 2
+    },
+    {
+      "title": "Line-Following Robot",
+      "type": "robotics | real-time control",
+      "description": "Developed a robot that follows a path by reading sensor values and applying embedded control logic for stable movement.",
+      "impact": [
+        "Applied real-time decision-making for navigation accuracy.",
+        "Improved consistency through sensor calibration and motor-response testing."
+      ],
+      "tags": [
+        "Sensors",
+        "Real-Time Logic",
+        "Embedded"
+      ],
+      "featured": false,
+      "order": 3
+    },
+    {
+      "title": "AI Skin Disease Scanner",
+      "type": "AI | machine learning | Raspberry Pi",
+      "description": "Built a proof-of-concept AI scanner for psoriasis and eczema support using Raspberry Pi, image processing, and a trained machine learning workflow.",
+      "impact": [
+        "Combined image capture, model inference, and user feedback in one prototype flow.",
+        "Shows ability to connect AI concepts with practical embedded deployment."
+      ],
+      "tags": [
+        "Raspberry Pi",
+        "Python",
+        "ML Model",
+        "AI"
+      ],
+      "featured": false,
+      "order": 4
+    },
+    {
+      "title": "Smart Security System (ESP + Telegram Auth)",
+      "type": "IoT | security | real-time auth",
+      "description": "Built a smart security prototype where visitor-triggered events can notify the homeowner through Telegram for real-time approval and monitoring.",
+      "impact": [
+        "Demonstrates event-driven IoT thinking and remote notification workflows.",
+        "Connects embedded devices, user authorization, and practical home-security logic."
+      ],
+      "tags": [
+        "ESP32",
+        "Raspberry Pi",
+        "Telegram API",
+        "IoT"
+      ],
+      "featured": false,
+      "order": 5
+    },
+    {
+      "title": "Real-Time Grocery Stock Monitor",
+      "type": "Python | automation | computer vision",
+      "description": "Created a Python workflow for QR and barcode scanning to support item identification, structured lookup, and inventory-style data handling.",
+      "impact": [
+        "Automates repetitive product identification steps using computer vision tools.",
+        "Shows practical data processing from captured input to structured records."
+      ],
+      "tags": [
+        "Python",
+        "Computer Vision",
+        "Automation"
+      ],
+      "featured": false,
+      "order": 6
+    }
+  ],
+  "skills": [
+    {
+      "title": "Embedded & IoT",
+      "items": [
+        "Embedded Systems",
+        "Raspberry Pi",
+        "Microcontrollers",
+        "Sensors",
+        "Hardware-Software Integration",
+        "Robotics"
+      ],
+      "order": 1
+    },
+    {
+      "title": "Software & Data",
+      "items": [
+        "Python",
+        "C++",
+        "Java",
+        "SQL",
+        "Visual Basic",
+        "HTML/CSS",
+        "Automation Scripts"
+      ],
+      "order": 2
+    },
+    {
+      "title": "AI, Network & Security",
+      "items": [
+        "Machine Learning",
+        "Image Processing",
+        "Cisco Networking",
+        "Data Analytics",
+        "Cybersecurity Fundamentals",
+        "Technical Troubleshooting"
+      ],
+      "order": 3
+    },
+    {
+      "title": "Professional Workflow",
+      "items": [
+        "Documentation",
+        "Testing",
+        "Project Coordination",
+        "Remote Collaboration",
+        "Budget Tracking",
+        "Quality Checks"
+      ],
+      "order": 4
+    }
+  ],
+  "certifications": [
+    {
+      "id": "ibm-intro-cybersecurity",
+      "issuer": "IBM",
+      "name": "Introduction to Cybersecurity",
+      "issueDate": "2025-12",
+      "credentialUrl": "",
+      "order": 1
+    },
+    {
+      "id": "ibm-machine-learning-python",
+      "issuer": "IBM",
+      "name": "Machine Learning with Python",
+      "issueDate": "2025-12",
+      "credentialUrl": "",
+      "order": 2
+    },
+    {
+      "id": "cisco-ccna-srwe",
+      "issuer": "CISCO",
+      "name": "CCNA: Switching, Routing & Wireless Essentials",
+      "issueDate": "2025-10",
+      "credentialUrl": "",
+      "order": 3
+    },
+    {
+      "id": "cisco-networking-devices",
+      "issuer": "CISCO",
+      "name": "Networking Devices and Initial Configuration",
+      "issueDate": "2025-05",
+      "credentialUrl": "",
+      "order": 4
+    },
+    {
+      "id": "cisco-data-analytics",
+      "issuer": "CISCO",
+      "name": "Data Analytics Essentials",
+      "issueDate": "2025-04",
+      "credentialUrl": "",
+      "order": 5
+    },
+    {
+      "id": "cisco-network-basics",
+      "issuer": "CISCO",
+      "name": "Network Basics",
+      "issueDate": "2025-04",
+      "credentialUrl": "",
+      "order": 6
+    },
+    {
+      "id": "cisco-pcap-python",
+      "issuer": "CISCO",
+      "name": "PCAP - Programming Essentials in Python",
+      "issueDate": "2024-05",
+      "credentialUrl": "",
+      "order": 7
+    },
+    {
+      "id": "itg-bosh-safety-officer",
+      "issuer": "ITG",
+      "name": "BOSH Training Course for Safety Officer",
+      "issueDate": "2024-05",
+      "credentialUrl": "",
+      "order": 8
+    }
+  ],
+  "leadership": [
+    {
+      "organization": "Mechatronics & Robotics Society of the Philippines",
+      "role": "Treasurer",
+      "period": "2023 - Present",
+      "description": "Managed funds, budgeting, financial records, and resource planning for organization projects and activities. This role supports my ability to handle responsibility, accuracy, and team coordination.",
+      "tags": [
+        "Finance",
+        "Budgeting",
+        "Leadership",
+        "Record Keeping"
+      ],
+      "order": 1
+    },
+    {
+      "organization": "LPU Pirates Esports",
+      "role": "Auditor",
+      "period": "2023 - 2024",
+      "description": "Reviewed financial records for accuracy and transparency, assisted with expense tracking, and supported reporting for organization activities.",
+      "tags": [
+        "Audit",
+        "Financial Compliance",
+        "Reporting",
+        "Accountability"
+      ],
+      "order": 2
     }
   ]
 };
@@ -176,6 +406,11 @@ function renderHero(data) {
   $("[data-summary]").textContent = profile.summary || "";
   renderName(profile.name || "Janlyn B. Rustila");
 
+  const roleLine = $("[data-role-line]");
+  if (roleLine) {
+    roleLine.textContent = [profile.role, profile.school, profile.location].filter(Boolean).join(" | ");
+  }
+
   const socials = $("[data-socials]");
   clear(socials);
   (profile.socials || []).forEach(social => {
@@ -199,6 +434,15 @@ function renderHero(data) {
     ]));
   });
 
+  const snapshot = $("[data-snapshot]");
+  clear(snapshot);
+  (profile.snapshot || []).forEach(item => {
+    snapshot.append(create("article", {}, [
+      create("strong", { text: item.label || "" }),
+      create("span", { text: item.value || "" })
+    ]));
+  });
+
   const stats = $("[data-stats]");
   clear(stats);
   (data.stats || []).forEach(stat => {
@@ -210,9 +454,21 @@ function renderHero(data) {
 
   const email = profile.email ? `mailto:${profile.email}` : "#";
   $("[data-email-link]").setAttribute("href", email);
-  $("[data-contact]").textContent = `Based in ${profile.location || "Laguna, Philippines"}. Interested in embedded systems, software engineering, AI, IoT, networking, and technical operations roles.`;
+  $("[data-contact]").textContent = profile.contactPitch || `Based in ${profile.location || "Laguna, Philippines"}. Interested in embedded systems, software engineering, AI, IoT, networking, and technical operations roles.`;
   $("[data-footer-name]").textContent = `${profile.name || "Janlyn B. Rustila"} | ${profile.role || "Computer Engineering"} | ${profile.school || "LPU Laguna"}`;
   $("[data-footer-contact]").textContent = `${profile.location || ""} | ${profile.phone || ""}`;
+}
+
+function renderValueProps(items = []) {
+  const root = $("[data-value-props]");
+  clear(root);
+  items.forEach((item, index) => {
+    root.append(create("article", { className: "value-card" }, [
+      create("small", { text: `REASON ${String(index + 1).padStart(2, "0")}` }),
+      create("h3", { text: item.title || "" }),
+      create("p", { text: item.description || "" })
+    ]));
+  });
 }
 
 function renderExperience(items = []) {
@@ -232,12 +488,21 @@ function renderProjects(items = []) {
   const root = $("[data-projects]");
   clear(root);
   items.forEach(item => {
-    root.append(create("article", { className: `project-card ${item.featured ? "featured" : ""}` }, [
+    const children = [
       create("p", { className: "meta", text: item.type || "" }),
       create("h3", { text: item.title || "" }),
-      create("p", { text: item.description || "" }),
+      create("p", { text: item.description || "" })
+    ];
+
+    if (Array.isArray(item.impact) && item.impact.length) {
+      children.push(create("ul", { className: "impact-list" }, item.impact.map(point => create("li", { text: point }))));
+    }
+
+    children.push(
       renderTags(item.tags)
-    ]));
+    );
+
+    root.append(create("article", { className: `project-card ${item.featured ? "featured" : ""}` }, children));
   });
 }
 
@@ -304,6 +569,7 @@ function renderAppsScript(data) {
 function renderPortfolio(data) {
   state.portfolio = data;
   renderHero(data);
+  renderValueProps(data.profile?.valueProps || []);
   renderExperience(data.experience);
   renderProjects(data.projects);
   renderSkills(data.skills);
@@ -479,7 +745,13 @@ async function syncAppsScriptCertificates() {
 
 function initAdmin() {
   const panel = $("[data-admin-panel]");
-  $("[data-admin-toggle]").addEventListener("click", () => panel.classList.toggle("open"));
+  const toggle = $("[data-admin-toggle]");
+  const adminEnabled = new URLSearchParams(window.location.search).has("admin");
+
+  if (!adminEnabled) return;
+
+  toggle.classList.add("visible");
+  toggle.addEventListener("click", () => panel.classList.toggle("open"));
   $("[data-close-admin]").addEventListener("click", () => panel.classList.remove("open"));
   $("[data-add-cert]").addEventListener("click", addCertificate);
   $("[data-sync-appscript]").addEventListener("click", syncAppsScriptCertificates);

@@ -26,6 +26,18 @@ Open:
 http://127.0.0.1:3000
 ```
 
+Admin controls are hidden on the public portfolio. To edit certificates locally or on your deployed site, open the portfolio with:
+
+```text
+?admin=1
+```
+
+Example:
+
+```text
+http://127.0.0.1:3000?admin=1
+```
+
 ## Open on Phone, Tablet, or Laptop
 
 You now have three options:

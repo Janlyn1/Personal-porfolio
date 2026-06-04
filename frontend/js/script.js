@@ -171,7 +171,7 @@ function renderAppsScript(data) {
   linkEl.style.pointerEvents = linkEl.href.endsWith("#") ? "none" : "";
   statusEl.textContent = appsScript.syncReady
     ? "Sync is ready because a deployed web app URL or deployment ID is configured."
-    : "Script ID added. Add a deployed web app URL/deployment ID in portfolio.json to enable sync.";
+    : "Script ID added. For Vercel, add APPS_SCRIPT_WEBAPP_URL or APPS_SCRIPT_DEPLOYMENT_ID in project environment variables to enable sync.";
 }
 
 function renderPortfolio(data) {

@@ -4,9 +4,13 @@ This is the sorted frontend/backend version of the portfolio.
 
 ## Structure
 
-- `frontend/` - portfolio UI (`index.html`, `styles.css`, `app.js`)
+- `frontend/` - portfolio UI source (`index.html`, `css/style.css`, `js/script.js`)
 - `backend/` - local API server and JSON data store
+- `public/` - Vercel static frontend output
+- `api/` - Vercel serverless API functions
+- `lib/` - shared Vercel API helpers
 - `backend/data/portfolio.json` - editable portfolio content
+- `api/data/portfolio.json` - Vercel portfolio content
 - `janlyn_portfolio_NAV_ADMIN_PANEL_ADD_FIXED.html` - previous single-file version
 - `janlyn_portfolio_NAV_ADMIN_PANEL_ADD_FIXED.backup.html` - original backup
 
@@ -47,6 +51,50 @@ x-admin-token: admin123
 ```
 
 Certificates are sorted newest first by `issueDate`. Projects are sorted with featured projects first, then by `order`.
+
+## Vercel Deploy
+
+This project is Vercel-ready:
+
+- Static frontend is in `public/`
+- Serverless API functions are in `api/`
+- Vercel config is in `vercel.json`
+
+Deploy the root folder:
+
+```text
+C:\Users\janly\Desktop\port
+```
+
+Set these Vercel environment variables:
+
+```text
+ADMIN_TOKEN=choose-a-private-admin-password
+APPS_SCRIPT_ID=1Zq5yESFCb3UuwvvNcC9fGU13Tq-5YkoPUTr2cfJ8xqVepZqkPreO4hKg
+```
+
+After deploying your Apps Script as a web app, add one of these:
+
+```text
+APPS_SCRIPT_WEBAPP_URL=https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec
+```
+
+or:
+
+```text
+APPS_SCRIPT_DEPLOYMENT_ID=YOUR_DEPLOYMENT_ID
+```
+
+On Vercel, API routes can read and sync data, but they cannot permanently write changes back to local JSON files. For permanent edits, update `api/data/portfolio.json`, use Apps Script as the content source, or connect a database later.
+
+Frontend source structure:
+
+```text
+frontend/
+├── index.html
+├── css/style.css
+└── js/script.js
+```
 
 ## Apps Script
 

@@ -1,0 +1,9 @@
+{
+  "name": "janlyn-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontend and backend portfolio for Janlyn B. Rustila.",
+  "scripts": {
+    "start": "node backend/server.js"
+  }
+}

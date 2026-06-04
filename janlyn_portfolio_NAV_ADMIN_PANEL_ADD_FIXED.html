@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Janlyn B. Rustila - Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#06080b;
+  --surface:#0e1217;
+  --surface-2:#141a21;
+  --surface-3:#1a222b;
+  --line:rgba(232,238,242,.11);
+  --line-strong:rgba(232,238,242,.2);
+  --text:#f4f7f8;
+  --muted:#a7b1b8;
+  --soft:#d9e1e5;
+  --accent:#b7f34a;
+  --cyan:#62dfcf;
+  --amber:#f0b35a;
+  --danger:#ff7d7d;
+  --shadow:0 24px 70px rgba(0,0,0,.34);
+  --sans:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace;
+}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  background:
+    linear-gradient(180deg,rgba(6,8,11,.35),var(--bg) 76%),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 110px),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 110px);
+  pointer-events:none;
+}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font-family:var(--mono)}
+button,a{touch-action:manipulation}
+::selection{background:var(--accent);color:#061008}
+.hidden{display:none!important}
+.galaxy-container{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  opacity:.72;
+}
+#galaxyCanvas{width:100%;height:100%;display:block}
+.page-shell{position:relative;z-index:1}
+.wrap{width:min(1120px,calc(100% - 48px));margin:0 auto}
+.top-nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
+  border-bottom:1px solid var(--line);
+  background:rgba(6,8,11,.78);
+  backdrop-filter:blur(18px);
+}
+.nav-inner{
+  width:min(1180px,calc(100% - 48px));
+  min-height:72px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.nav-logo{
+  font-family:var(--mono);
+  font-size:.86rem;
+  font-weight:700;
+  color:var(--accent);
+  white-space:nowrap;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  list-style:none;
+  flex-wrap:wrap;
+}
+.nav-item-wrap{display:inline-flex;align-items:center;gap:6px}
+.nav-links a{
+  display:inline-flex;
+  min-height:34px;
+  align-items:center;
+  border:1px solid transparent;
+  border-radius:8px;
+  padding:6px 10px;
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:.76rem;
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.nav-links a:hover{background:rgba(255,255,255,.05);color:var(--text);border-color:var(--line)}
+.nav-status{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--soft);
+  font-family:var(--mono);
+  font-size:.76rem;
+  white-space:nowrap;
+}
+.status-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 18px rgba(183,243,74,.5);
+}
+.hero{
+  min-height:auto;
+  display:flex;
+  align-items:center;
+  padding:112px 0 40px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(330px,.72fr);
+  gap:56px;
+  align-items:center;
+}
+.eyebrow{
+  display:inline-flex;
+  margin-bottom:20px;
+  color:var(--cyan);
+  font-family:var(--mono);
+  font-size:.84rem;
+  font-weight:600;
+}
+.hero h1{
+  max-width:760px;
+  font-size:5rem;
+  line-height:.96;
+  font-weight:800;
+  margin-bottom:24px;
+}
+.hero h1 span{color:var(--accent)}
+.hero-sub{
+  max-width:660px;
+  color:var(--soft);
+  font-size:1.08rem;
+  line-height:1.8;
+  margin-bottom:30px;
+}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px}
+.btn{
+  display:inline-flex;
+  min-height:46px;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  padding:11px 18px;
+  border:1px solid var(--line-strong);
+  font-family:var(--mono);
+  font-size:.83rem;
+  font-weight:700;
+  cursor:pointer;
+  transition:transform .2s ease,background .2s ease,border-color .2s ease,color .2s ease;
+}
+.btn:hover{transform:translateY(-2px);border-color:rgba(183,243,74,.45)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:#071009}
+.btn-secondary{background:rgba(255,255,255,.04);color:var(--text)}
+.social-item{display:inline-flex;align-items:center;gap:8px}
+.focus-strip{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  max-width:760px;
+}
+.focus-chip{
+  min-height:74px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(14,18,23,.62);
+  padding:14px;
+}
+.focus-kicker{
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:.72rem;
+  margin-bottom:4px;
+}
+.focus-title{font-weight:700;color:var(--text)}
+.hero-panel{
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(14,18,23,.72);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.panel-head{
+  min-height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:0 16px;
+  border-bottom:1px solid var(--line);
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:.76rem;
+}
+.panel-lights{display:flex;gap:7px}
+.panel-lights span{width:9px;height:9px;border-radius:50%;background:var(--surface-3)}
+.panel-lights span:nth-child(1){background:#ff6d65}
+.panel-lights span:nth-child(2){background:#f5c85c}
+.panel-lights span:nth-child(3){background:#68d391}
+.system-list{display:grid;gap:1px;background:var(--line)}
+.system-row{
+  background:rgba(14,18,23,.92);
+  padding:14px 16px;
+  display:grid;
+  gap:4px;
+}
+.system-row strong{font-size:.94rem}
+.system-row span{color:var(--muted);font-size:.83rem;line-height:1.48}
+.profile-visual{
+  width:100%;
+  max-height:260px;
+  object-fit:cover;
+  border-top:1px solid var(--line);
+  display:block;
+}
+.hero-stats{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  border-top:1px solid var(--line);
+}
+.stat-item{
+  min-height:88px;
+  padding:14px 16px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.025);
+}
+.stat-v{
+  font-size:1.78rem;
+  line-height:1;
+  font-weight:800;
+  color:var(--accent);
+  margin-bottom:6px;
+}
+.stat-l{
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:.76rem;
+}
+.stat-info{
+  margin-top:8px;
+  color:var(--soft);
+  font-size:.76rem;
+  line-height:1.45;
+}
+.hero-stats .stat-info{display:none}
+body.admin-mode .hero-stats .stat-info{display:block}
+section{padding:84px 0}
+.section-label{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  align-items:center;
+  gap:18px;
+  margin-bottom:26px;
+  color:var(--accent);
+  font-family:var(--mono);
+  font-size:.82rem;
+  font-weight:700;
+}
+.section-label::after{content:"";height:1px;background:var(--line)}
+.exp-card,.proj-card,.skill-group,.lead-card,.cert-item,.custom-section-card{
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(14,18,23,.76);
+  transition:transform .2s ease,border-color .2s ease,background .2s ease;
+}
+.exp-card:hover,.proj-card:hover,.skill-group:hover,.lead-card:hover,.cert-item:hover,.custom-section-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(98,223,207,.32);
+  background:rgba(18,24,31,.88);
+}
+.exp-card{overflow:hidden;margin-bottom:14px}
+.exp-head{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  background:transparent;
+  color:var(--text);
+  border:0;
+  text-align:left;
+  padding:22px 24px;
+  cursor:pointer;
+}
+.exp-role{font-size:1.22rem;font-weight:800;margin-bottom:4px}
+.exp-meta{color:var(--muted);font-family:var(--mono);font-size:.78rem}
+.plus{font-size:1.8rem;color:var(--accent);line-height:1;transition:transform .2s ease}
+.exp-card.active .plus{transform:rotate(45deg)}
+.exp-content{display:none;padding:0 24px 24px}
+.exp-card.active .exp-content{display:block}
+.exp-body,.proj-desc,.lead-body,.custom-section-card .proj-desc{
+  color:var(--soft);
+  font-size:.96rem;
+  line-height:1.75;
+}
+.tag-list,.proj-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tag,.tag2,.tag-y,.tag-o{
+  display:inline-flex;
+  min-height:28px;
+  align-items:center;
+  border-radius:999px;
+  padding:4px 10px;
+  border:1px solid rgba(98,223,207,.24);
+  color:var(--cyan);
+  font-family:var(--mono);
+  font-size:.72rem;
+  background:rgba(98,223,207,.06);
+}
+.tag-y{border-color:rgba(183,243,74,.24);color:var(--accent);background:rgba(183,243,74,.06)}
+.tag-o{border-color:rgba(240,179,90,.3);color:var(--amber);background:rgba(240,179,90,.07)}
+.proj-grid,.lead-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+.proj-card,.lead-card,.custom-section-card{padding:24px}
+.proj-card.featured{
+  grid-column:1/-1;
+  border-color:rgba(183,243,74,.35);
+  background:linear-gradient(180deg,rgba(183,243,74,.08),rgba(14,18,23,.82));
+}
+.proj-card.featured::before{
+  content:"THESIS";
+  display:inline-flex;
+  min-height:28px;
+  align-items:center;
+  border:1px solid rgba(183,243,74,.3);
+  border-radius:999px;
+  color:var(--accent);
+  padding:3px 10px;
+  margin-bottom:14px;
+  font-family:var(--mono);
+  font-size:.7rem;
+  font-weight:700;
+}
+.proj-type,.lead-org{
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:.76rem;
+  margin-bottom:8px;
+}
+.proj-title,.lead-role{
+  font-size:1.25rem;
+  line-height:1.25;
+  font-weight:800;
+  margin-bottom:10px;
+}
+.lead-org{color:var(--amber)}
+.lead-period{color:var(--muted);font-family:var(--mono);font-size:.78rem;margin-bottom:12px}
+.skills-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.skill-group{padding:20px}
+.sg-title{font-family:var(--mono);font-size:.78rem;color:var(--accent);font-weight:700;margin-bottom:14px}
+.sk{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  min-height:36px;
+  border-bottom:1px solid var(--line);
+  color:var(--soft);
+  font-size:.92rem;
+}
+.sk:last-of-type{border-bottom:0}
+.sk-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);flex:0 0 auto}
+.terminal{
+  margin-top:18px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  overflow:hidden;
+  background:#080b0f;
+}
+.term-bar{
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:0 16px;
+  border-bottom:1px solid var(--line);
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:.76rem;
+}
+.td{width:10px;height:10px;border-radius:50%}
+.term-body{padding:18px}
+.tl{display:flex;flex-wrap:wrap;gap:12px;padding:4px 0;font-family:var(--mono);font-size:.84rem}
+.tp{color:var(--accent)}.tc{color:var(--text)}.tm{color:var(--muted)}
+.cert-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+.cert-item{
+  min-height:128px;
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:18px;
+  cursor:pointer;
+}
+.cert-logo{
+  min-width:56px;
+  min-height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(240,179,90,.32);
+  border-radius:8px;
+  color:var(--amber);
+  background:rgba(240,179,90,.07);
+  font-family:var(--mono);
+  font-size:.76rem;
+  font-weight:800;
+  text-align:center;
+}
+.cert-name{font-weight:800;line-height:1.35;margin-bottom:6px}
+.cert-date{color:var(--muted);font-family:var(--mono);font-size:.76rem}
+.upload-cert-btn{
+  display:none;
+  margin-top:12px;
+  border:1px solid var(--line-strong);
+  border-radius:8px;
+  background:transparent;
+  color:var(--text);
+  padding:8px 10px;
+  font-size:.74rem;
+  cursor:pointer;
+}
+.upload-cert-btn:hover{border-color:var(--accent);color:var(--accent)}
+.contact-band{
+  padding:46px 0 70px;
+}
+.contact-card{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:24px;
+  align-items:center;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(14,18,23,.78);
+  padding:28px;
+}
+.contact-card h2{font-size:1.8rem;margin-bottom:8px}
+.contact-card p{color:var(--soft)}
+footer{
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:.78rem;
+  padding:28px 0;
+}
+.footer-inner{
+  width:min(1120px,calc(100% - 48px));
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.footer-inner span{color:var(--text)}
+.admin-toggle{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:300;
+  min-height:44px;
+  border:0;
+  border-radius:8px;
+  background:var(--accent);
+  color:#071009;
+  padding:0 16px;
+  font-size:.75rem;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 16px 34px rgba(0,0,0,.34);
+}
+.admin-panel{
+  position:fixed;
+  right:18px;
+  bottom:74px;
+  z-index:301;
+  width:min(450px,calc(100vw - 36px));
+  max-height:82vh;
+  overflow:auto;
+  display:none;
+  border:1px solid var(--line-strong);
+  border-radius:8px;
+  background:#0a0d11;
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+.admin-panel.open{display:block}
+.admin-panel h3{font-size:1.02rem;margin-bottom:8px}
+.admin-panel p{color:var(--muted);font-family:var(--mono);font-size:.76rem;line-height:1.6;margin:8px 0}
+.admin-panel input,.admin-panel textarea{
+  width:100%;
+  border:1px solid var(--line-strong);
+  border-radius:8px;
+  background:var(--surface);
+  color:var(--text);
+  padding:10px;
+  margin:7px 0;
+  font-size:.82rem;
+}
+.admin-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.admin-actions button,.admin-file,.admin-mini button{
+  min-height:34px;
+  border:1px solid var(--line-strong);
+  border-radius:8px;
+  background:transparent;
+  color:var(--text);
+  padding:7px 10px;
+  font-size:.72rem;
+  cursor:pointer;
+}
+.admin-actions .primary{background:var(--accent);border-color:var(--accent);color:#071009;font-weight:800}
+.admin-file{display:inline-flex;align-items:center}
+.admin-mini{display:none;flex-wrap:wrap;gap:8px;margin-top:14px}
+body.admin-mode .admin-mini{display:flex}
+body.admin-mode .upload-cert-btn{display:inline-flex}
+body.admin-mode [contenteditable="true"]{
+  outline:1px dashed rgba(183,243,74,.55);
+  outline-offset:4px;
+  cursor:text;
+}
+body.admin-mode .nav-links a{color:var(--accent)}
+.nav-remove{
+  display:none;
+  width:24px;
+  height:24px;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(255,125,125,.42);
+  border-radius:6px;
+  background:transparent;
+  color:var(--danger);
+  font-size:.72rem;
+  cursor:pointer;
+}
+body.admin-mode .nav-remove{display:inline-flex}
+.del-btn{color:var(--danger)!important;border-color:rgba(255,125,125,.42)!important}
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:400;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:rgba(2,4,7,.82);
+}
+.modal.open{display:flex}
+.modal-box{
+  width:min(920px,96vw);
+  height:min(720px,90vh);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid var(--line-strong);
+  border-radius:8px;
+  background:#0a0d11;
+}
+.modal-head{
+  min-height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:0 16px;
+  border-bottom:1px solid var(--line);
+}
+.modal-head h3{font-size:1rem}
+.close-modal{
+  min-height:34px;
+  border:1px solid var(--line-strong);
+  border-radius:8px;
+  background:transparent;
+  color:var(--text);
+  padding:7px 10px;
+  cursor:pointer;
+}
+.pdf-frame{width:100%;height:100%;border:0;background:#1a1f26}
+.no-pdf{padding:28px;color:var(--muted);font-family:var(--mono);font-size:.84rem}
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .hero h1{font-size:4rem}
+  .skills-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cert-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:760px){
+  .wrap,.nav-inner,.footer-inner{width:min(100% - 32px,1120px)}
+  .top-nav{position:sticky}
+  .nav-inner{min-height:auto;padding:14px 0;align-items:flex-start;flex-direction:column}
+  .nav-links{justify-content:flex-start}
+  .nav-status{display:none}
+  .hero{min-height:auto;padding:62px 0 48px}
+  .hero h1{font-size:3rem}
+  .hero-sub{font-size:1rem}
+  .focus-strip,.hero-stats,.proj-grid,.lead-grid,.skills-grid,.cert-grid,.contact-card{grid-template-columns:1fr}
+  section{padding:58px 0}
+  .contact-card{align-items:start}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .galaxy-container{opacity:.28}
+}
+</style>
+</head>
+<body>
+<canvas class="galaxy-container" id="galaxyCanvas" aria-hidden="true"></canvas>
+<div class="page-shell">
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <div class="nav-logo" data-edit>rustila.dev</div>
+      <ul class="nav-links" id="navLinks">
+        <li class="nav-item-wrap" data-section-id="experience"><a href="#experience" data-edit>experience</a><button class="nav-remove" onclick="removeNavSection(event,this)">x</button></li>
+        <li class="nav-item-wrap" data-section-id="projects"><a href="#projects" data-edit>projects</a><button class="nav-remove" onclick="removeNavSection(event,this)">x</button></li>
+        <li class="nav-item-wrap" data-section-id="skills"><a href="#skills" data-edit>skills</a><button class="nav-remove" onclick="removeNavSection(event,this)">x</button></li>
+        <li class="nav-item-wrap" data-section-id="certs"><a href="#certs" data-edit>certifications</a><button class="nav-remove" onclick="removeNavSection(event,this)">x</button></li>
+        <li class="nav-item-wrap" data-section-id="leadership"><a href="#leadership" data-edit>leadership</a><button class="nav-remove" onclick="removeNavSection(event,this)">x</button></li>
+      </ul>
+      <div class="admin-mini"><button onclick="addNavSection()">+ Add top tab</button></div>
+      <div class="nav-status"><span class="status-dot"></span><span data-edit>available for OJT</span></div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow" data-edit>BS Computer Engineering | Embedded Systems | AI + Robotics</div>
+          <h1 data-edit>Janlyn B.<br><span>Rustila</span></h1>
+          <p class="hero-sub" data-edit>I build practical engineering systems that connect hardware, software, and real-world workflows. My work spans embedded development, robotics, AI-assisted tools, networking, and automation.</p>
+          <div class="cta-row" id="socialLinks">
+            <span class="social-item"><a class="btn btn-primary" href="https://www.linkedin.com/in/janlyn-rustila-04abb9206/" target="_blank" rel="noreferrer" data-edit>LinkedIn &rarr;</a><span class="admin-mini"><button class="del-btn" onclick="deleteCard(this,'.social-item')">Remove</button></span></span>
+            <span class="social-item"><a class="btn btn-secondary" href="mailto:Rustilajanlyn@gmail.com" data-edit>Email me</a><span class="admin-mini"><button class="del-btn" onclick="deleteCard(this,'.social-item')">Remove</button></span></span>
+          </div>
+          <div class="admin-mini"><button onclick="addSocial()">+ Add social/contact link</button></div>
+          <div class="focus-strip">
+            <div class="focus-chip"><div class="focus-kicker" data-edit>Focus 01</div><div class="focus-title" data-edit>Embedded prototypes</div></div>
+            <div class="focus-chip"><div class="focus-kicker" data-edit>Focus 02</div><div class="focus-title" data-edit>AI-assisted systems</div></div>
+            <div class="focus-chip"><div class="focus-kicker" data-edit>Focus 03</div><div class="focus-title" data-edit>Networked automation</div></div>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Portfolio summary">
+          <div class="panel-head"><div class="panel-lights"><span></span><span></span><span></span></div><span data-edit>janlyn.systems</span></div>
+          <div class="system-list">
+            <div class="system-row"><strong data-edit>Current profile</strong><span data-edit>Computer Engineering student with hands-on embedded, robotics, and AI projects.</span></div>
+            <div class="system-row"><strong data-edit>Core strength</strong><span data-edit>Building prototypes with sensors, Raspberry Pi, Python, and real-time logic.</span></div>
+            <div class="system-row"><strong data-edit>Career direction</strong><span data-edit>Seeking OJT in embedded systems, software, AI, IoT, or technical operations.</span></div>
+          </div>
+          <img id="profileVisual" class="profile-visual hidden" alt="Uploaded portfolio visual">
+          <div class="hero-stats" id="statsList">
+            <div class="stat-item"><div class="stat-v" data-edit>6</div><div class="stat-l" data-edit>projects built</div><div class="stat-info" data-edit>Embedded, robotics, AI, and automation prototypes.</div><div class="admin-mini"><button onclick="addStatInfo(this)">+ Add note</button><button class="del-btn" onclick="deleteCard(this,'.stat-item')">Remove</button></div></div>
+            <div class="stat-item"><div class="stat-v" data-edit>14</div><div class="stat-l" data-edit>certifications</div><div class="stat-info" data-edit>Cisco, IBM, safety, analytics, and cybersecurity training.</div><div class="admin-mini"><button onclick="addStatInfo(this)">+ Add note</button><button class="del-btn" onclick="deleteCard(this,'.stat-item')">Remove</button></div></div>
+            <div class="stat-item"><div class="stat-v" data-edit>2</div><div class="stat-l" data-edit>leadership roles</div><div class="stat-info" data-edit>Finance, audit, reporting, and organization support.</div><div class="admin-mini"><button onclick="addStatInfo(this)">+ Add note</button><button class="del-btn" onclick="deleteCard(this,'.stat-item')">Remove</button></div></div>
+            <div class="stat-item"><div class="stat-v" data-edit>OJT</div><div class="stat-l" data-edit>ready</div><div class="stat-info" data-edit>Prepared for collaborative engineering and technical work.</div><div class="admin-mini"><button onclick="addStatInfo(this)">+ Add note</button><button class="del-btn" onclick="deleteCard(this,'.stat-item')">Remove</button></div></div>
+          </div>
+          <div class="admin-mini"><button onclick="addStat()">+ Add number/stat</button></div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="experience"><div class="wrap">
+      <div class="section-label">01 - experience</div>
+      <div id="experienceList">
+        <div class="exp-card active">
+          <button class="exp-head" onclick="toggleExp(this)">
+            <div><div class="exp-role" data-edit>YouTube Editor</div><div class="exp-meta" data-edit>Remote Work | Jan 2021 - July 2021</div></div><div class="plus">+</div>
+          </button>
+          <div class="exp-content">
+            <div class="exp-body" data-edit>Produced and edited video content aligned with brand standards. Managed asset organization, backups, editing workflows, publishing schedules, basic reporting, and performance checks for continuous content improvement.</div>
+            <div class="tag-list"><span class="tag" data-edit>video production</span><span class="tag" data-edit>workflow management</span><span class="tag" data-edit>content scheduling</span><span class="tag" data-edit>performance monitoring</span><span class="tag" data-edit>remote work</span></div>
+            <div class="admin-mini"><button onclick="addExperienceSkill(this)">+ Add skill</button><button onclick="addExperienceInfo(this)">+ Add info tab</button><button class="del-btn" onclick="deleteCard(this,'.exp-card')">Delete experience</button></div>
+          </div>
+        </div>
+      </div>
+      <div class="admin-mini"><button onclick="addExperience()">+ Add experience</button></div>
+    </div></section>
+
+    <section id="projects"><div class="wrap">
+      <div class="section-label">02 - selected engineering projects</div>
+      <div class="proj-grid" id="projectList">
+        <div class="proj-card featured">
+          <div class="proj-type" data-edit>thesis project | embedded systems | IoT</div>
+          <div class="proj-title" data-edit>CampusVital: Smart Health Monitoring Kiosk</div>
+          <div class="proj-desc" data-edit>A self-service campus kiosk for monitoring basic health vitals. Integrated sensors and embedded systems to measure vital signs, display real-time feedback, and support proactive student wellness through practical health technology.</div>
+          <div class="proj-tags"><span class="tag-y" data-edit>Raspberry Pi</span><span class="tag-y" data-edit>Embedded Systems</span><span class="tag-y" data-edit>Sensors</span><span class="tag-y" data-edit>Health IoT</span></div>
+          <div class="admin-mini"><button onclick="addProjectTag(this)">+ Add tag</button><button onclick="toggleFeatured(this)">Toggle thesis badge</button><button class="del-btn" onclick="deleteCard(this,'.proj-card')">Delete project</button></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-type" data-edit>autonomous robotics | embedded logic</div>
+          <div class="proj-title" data-edit>SumoBot - Autonomous Sumo Robot</div>
+          <div class="proj-desc" data-edit>Designed and built an autonomous sumo robot capable of opponent detection and strategic movement. Integrated sensors, motor control, and embedded logic for competitive robot behavior.</div>
+          <div class="proj-tags"><span class="tag" data-edit>Motor Control</span><span class="tag" data-edit>Sensors</span><span class="tag" data-edit>Embedded C</span></div>
+          <div class="admin-mini"><button onclick="addProjectTag(this)">+ Add tag</button><button onclick="toggleFeatured(this)">Toggle thesis badge</button><button class="del-btn" onclick="deleteCard(this,'.proj-card')">Delete project</button></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-type" data-edit>robotics | real-time control</div>
+          <div class="proj-title" data-edit>Line-Following Robot</div>
+          <div class="proj-desc" data-edit>Developed a line-following robot using sensors and embedded control logic for accurate path tracking. Implemented real-time motor decisions to improve navigation consistency.</div>
+          <div class="proj-tags"><span class="tag" data-edit>Sensors</span><span class="tag" data-edit>Real-Time Logic</span><span class="tag" data-edit>Embedded</span></div>
+          <div class="admin-mini"><button onclick="addProjectTag(this)">+ Add tag</button><button onclick="toggleFeatured(this)">Toggle thesis badge</button><button class="del-btn" onclick="deleteCard(this,'.proj-card')">Delete project</button></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-type" data-edit>AI | machine learning | Raspberry Pi</div>
+          <div class="proj-title" data-edit>AI Skin Disease Scanner</div>
+          <div class="proj-desc" data-edit>Built an AI-powered skin condition scanner for psoriasis and eczema support using Raspberry Pi and a trained ML model. Applied image processing and inference workflows for early detection assistance.</div>
+          <div class="proj-tags"><span class="tag-o" data-edit>Raspberry Pi</span><span class="tag-o" data-edit>Python</span><span class="tag-o" data-edit>ML Model</span><span class="tag-o" data-edit>AI</span></div>
+          <div class="admin-mini"><button onclick="addProjectTag(this)">+ Add tag</button><button onclick="toggleFeatured(this)">Toggle thesis badge</button><button class="del-btn" onclick="deleteCard(this,'.proj-card')">Delete project</button></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-type" data-edit>IoT | security | real-time auth</div>
+          <div class="proj-title" data-edit>Smart Security System (ESP + Telegram Auth)</div>
+          <div class="proj-desc" data-edit>Built an embedded smart security prototype using Raspberry Pi, ESP components, and Telegram-based authentication. Visitor-triggered requests are sent to the homeowner for real-time approval and monitoring.</div>
+          <div class="proj-tags"><span class="tag2" data-edit>ESP32</span><span class="tag2" data-edit>Raspberry Pi</span><span class="tag2" data-edit>Telegram API</span><span class="tag2" data-edit>IoT</span></div>
+          <div class="admin-mini"><button onclick="addProjectTag(this)">+ Add tag</button><button onclick="toggleFeatured(this)">Toggle thesis badge</button><button class="del-btn" onclick="deleteCard(this,'.proj-card')">Delete project</button></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-type" data-edit>Python | automation | computer vision</div>
+          <div class="proj-title" data-edit>Real-Time Grocery Stock Monitor</div>
+          <div class="proj-desc" data-edit>Created a Python-based QR and barcode scanning workflow for grocery item identification and data processing. Automated product lookup through image capture, decoding, and structured item retrieval.</div>
+          <div class="proj-tags"><span class="tag" data-edit>Python</span><span class="tag" data-edit>Computer Vision</span><span class="tag" data-edit>Automation</span></div>
+          <div class="admin-mini"><button onclick="addProjectTag(this)">+ Add tag</button><button onclick="toggleFeatured(this)">Toggle thesis badge</button><button class="del-btn" onclick="deleteCard(this,'.proj-card')">Delete project</button></div>
+        </div>
+      </div>
+      <div class="admin-mini"><button onclick="addProject()">+ Add project</button></div>
+    </div></section>
+
+    <section id="skills"><div class="wrap">
+      <div class="section-label">03 - skills and technologies</div>
+      <div class="skills-grid" id="skillsList">
+        <div class="skill-group"><div class="sg-title" data-edit>Embedded &amp; Hardware</div><div class="sk" data-edit>Embedded Systems <span class="sk-dot"></span></div><div class="sk" data-edit>Raspberry Pi <span class="sk-dot"></span></div><div class="sk" data-edit>Microcontrollers <span class="sk-dot"></span></div><div class="sk" data-edit>Hardware-Software Integration <span class="sk-dot"></span></div><div class="sk" data-edit>Robotics <span class="sk-dot"></span></div><div class="admin-mini"><button onclick="addSkill(this)">+ Add skill</button><button class="del-btn" onclick="deleteCard(this,'.skill-group')">Delete group</button></div></div>
+        <div class="skill-group"><div class="sg-title" data-edit>Programming</div><div class="sk" data-edit>Python <span class="sk-dot"></span></div><div class="sk" data-edit>C++ <span class="sk-dot"></span></div><div class="sk" data-edit>Java <span class="sk-dot"></span></div><div class="sk" data-edit>SQL <span class="sk-dot"></span></div><div class="sk" data-edit>Visual Basic <span class="sk-dot"></span></div><div class="sk" data-edit>HTML/CSS <span class="sk-dot"></span></div><div class="admin-mini"><button onclick="addSkill(this)">+ Add skill</button><button class="del-btn" onclick="deleteCard(this,'.skill-group')">Delete group</button></div></div>
+        <div class="skill-group"><div class="sg-title" data-edit>AI &amp; Networking</div><div class="sk" data-edit>AI Development <span class="sk-dot"></span></div><div class="sk" data-edit>Machine Learning <span class="sk-dot"></span></div><div class="sk" data-edit>Automation <span class="sk-dot"></span></div><div class="sk" data-edit>Cisco Networking <span class="sk-dot"></span></div><div class="sk" data-edit>Data Analytics <span class="sk-dot"></span></div><div class="admin-mini"><button onclick="addSkill(this)">+ Add skill</button><button class="del-btn" onclick="deleteCard(this,'.skill-group')">Delete group</button></div></div>
+        <div class="skill-group"><div class="sg-title" data-edit>Platforms &amp; Operations</div><div class="sk" data-edit>Windows <span class="sk-dot"></span></div><div class="sk" data-edit>Ubuntu <span class="sk-dot"></span></div><div class="sk" data-edit>macOS <span class="sk-dot"></span></div><div class="sk" data-edit>Cybersecurity Fundamentals <span class="sk-dot"></span></div><div class="sk" data-edit>Project Coordination <span class="sk-dot"></span></div><div class="admin-mini"><button onclick="addSkill(this)">+ Add skill</button><button class="del-btn" onclick="deleteCard(this,'.skill-group')">Delete group</button></div></div>
+      </div>
+      <div class="admin-mini"><button onclick="addSkillGroup()">+ Add skill group</button></div>
+      <div class="terminal">
+        <div class="term-bar"><div class="td" style="background:#ff5f57"></div><div class="td" style="background:#febc2e"></div><div class="td" style="background:#28c840"></div><span style="margin-left:auto" data-edit>janlyn@raspberrypi</span></div>
+        <div class="term-body">
+          <div class="tl"><span class="tp">~$</span><span class="tc" data-edit>python scanner.py</span><span class="tm" data-edit># run barcode scanner</span></div>
+          <div class="tl"><span class="tp">~$</span><span class="tc" data-edit>python train_model.py</span><span class="tm" data-edit># train AI skin detection model</span></div>
+          <div class="tl"><span class="tp">~$</span><span class="tc" data-edit>ssh pi@192.168.1.1</span><span class="tm" data-edit># connect to Raspberry Pi</span></div>
+          <div class="tl"><span class="tp">~$</span><span class="tc" data-edit>telegram-bot --auth --notify</span><span class="tm" data-edit># start security auth bot</span></div>
+          <div class="tl" style="margin-top:8px"><span class="tp" style="color:var(--cyan)">ok</span><span class="tc" style="color:var(--muted)" data-edit>embedded + AI workflow ready</span></div>
+        </div>
+      </div>
+    </div></section>
+
+    <section id="certs"><div class="wrap">
+      <div class="section-label">04 - certifications</div>
+      <div class="cert-grid" id="certList">
+        <div class="cert-item" onclick="openCertModal(this)"><div class="cert-logo" data-edit>IBM</div><div><div class="cert-name" data-edit>Introduction to Cybersecurity</div><div class="cert-date" data-edit>Dec 2025</div><input type="file" accept="application/pdf" class="hidden cert-upload"><button class="upload-cert-btn" onclick="uploadCert(event,this)">Upload PDF</button><div class="admin-mini"><button class="del-btn" onclick="deleteCard(this,'.cert-item')">Delete cert</button></div></div></div>
+        <div class="cert-item" onclick="openCertModal(this)"><div class="cert-logo" data-edit>IBM</div><div><div class="cert-name" data-edit>Machine Learning with Python</div><div class="cert-date" data-edit>Dec 2025</div><input type="file" accept="application/pdf" class="hidden cert-upload"><button class="upload-cert-btn" onclick="uploadCert(event,this)">Upload PDF</button><div class="admin-mini"><button class="del-btn" onclick="deleteCard(this,'.cert-item')">Delete cert</button></div></div></div>
+        <div class="cert-item" onclick="openCertModal(this)"><div class="cert-logo" data-edit>CISCO</div><div><div class="cert-name" data-edit>CCNA: Switching, Routing &amp; Wireless Essentials</div><div class="cert-date" data-edit>Oct 2025</div><input type="file" accept="application/pdf" class="hidden cert-upload"><button class="upload-cert-btn" onclick="uploadCert(event,this)">Upload PDF</button><div class="admin-mini"><button class="del-btn" onclick="deleteCard(this,'.cert-item')">Delete cert</button></div></div></div>
+        <div class="cert-item" onclick="openCertModal(this)"><div class="cert-logo" data-edit>CISCO</div><div><div class="cert-name" data-edit>Networking Devices and Initial Configuration</div><div class="cert-date" data-edit>May 2025</div><input type="file" accept="application/pdf" class="hidden cert-upload"><button class="upload-cert-btn" onclick="uploadCert(event,this)">Upload PDF</button><div class="admin-mini"><button class="del-btn" onclick="deleteCard(this,'.cert-item')">Delete cert</button></div></div></div>
+        <div class="cert-item" onclick="openCertModal(this)"><div class="cert-logo" data-edit>CISCO</div><div><div class="cert-name" data-edit>Data Analytics Essentials</div><div class="cert-date" data-edit>Apr 2025</div><input type="file" accept="application/pdf" class="hidden cert-upload"><button class="upload-cert-btn" onclick="uploadCert(event,this)">Upload PDF</button><div class="admin-mini"><button class="del-btn" onclick="deleteCard(this,'.cert-item')">Delete cert</button></div></div></div>
+        <div class="cert-item" onclick="openCertModal(this)"><div class="cert-logo" data-edit>CISCO</div><div><div class="cert-name" data-edit>Network Basics</div><div class="cert-date" data-edit>Apr 2025</div><input type="file" accept="application/pdf" class="hidden cert-upload"><button class="upload-cert-btn" onclick="uploadCert(event,this)">Upload PDF</button><div class="admin-mini"><button class="del-btn" onclick="deleteCard(this,'.cert-item')">Delete cert</button></div></div></div>
+        <div class="cert-item" onclick="openCertModal(this)"><div class="cert-logo" data-edit>CISCO</div><div><div class="cert-name" data-edit>PCAP - Programming Essentials in Python</div><div class="cert-date" data-edit>May 2024</div><input type="file" accept="application/pdf" class="hidden cert-upload"><button class="upload-cert-btn" onclick="uploadCert(event,this)">Upload PDF</button><div class="admin-mini"><button class="del-btn" onclick="deleteCard(this,'.cert-item')">Delete cert</button></div></div></div>
+        <div class="cert-item" onclick="openCertModal(this)"><div class="cert-logo" data-edit>ITG</div><div><div class="cert-name" data-edit>BOSH Training Course for Safety Officer</div><div class="cert-date" data-edit>May 2024</div><input type="file" accept="application/pdf" class="hidden cert-upload"><button class="upload-cert-btn" onclick="uploadCert(event,this)">Upload PDF</button><div class="admin-mini"><button class="del-btn" onclick="deleteCard(this,'.cert-item')">Delete cert</button></div></div></div>
+      </div>
+      <div class="admin-mini"><button onclick="addCert()">+ Add certification</button></div>
+    </div></section>
+
+    <section id="leadership"><div class="wrap">
+      <div class="section-label">05 - leadership and activities</div>
+      <div class="lead-grid" id="leadList">
+        <div class="lead-card"><div class="lead-org" data-edit>Mechatronics &amp; Robotics Society of the Philippines</div><div class="lead-role" data-edit>Treasurer</div><div class="lead-period" data-edit>2023 - Present</div><div class="lead-body" data-edit>Managed organizational funds, budgeting, and financial planning for projects, events, and activities. Maintained accurate financial records and collaborated with officers for resource allocation and timely decisions.</div><div class="tag-list"><span class="tag-o" data-edit>Finance</span><span class="tag-o" data-edit>Budgeting</span><span class="tag-o" data-edit>Leadership</span></div><div class="admin-mini"><button onclick="addLeadTag(this)">+ Add tag</button><button class="del-btn" onclick="deleteCard(this,'.lead-card')">Delete leadership</button></div></div>
+        <div class="lead-card"><div class="lead-org" data-edit>LPU Pirates Esports</div><div class="lead-role" data-edit>Auditor</div><div class="lead-period" data-edit>2023 - 2024</div><div class="lead-body" data-edit>Reviewed financial records for accuracy, transparency, and compliance with organization policies. Assisted with budget evaluation, expense tracking, and financial reporting for esports activities.</div><div class="tag-list"><span class="tag" data-edit>Audit</span><span class="tag" data-edit>Financial Compliance</span><span class="tag" data-edit>Reporting</span></div><div class="admin-mini"><button onclick="addLeadTag(this)">+ Add tag</button><button class="del-btn" onclick="deleteCard(this,'.lead-card')">Delete leadership</button></div></div>
+      </div>
+      <div class="admin-mini"><button onclick="addLeadership()">+ Add leadership/activity</button></div>
+    </div></section>
+
+    <div id="customSections"></div>
+
+    <section class="contact-band"><div class="wrap">
+      <div class="contact-card">
+        <div>
+          <h2 data-edit>Open to OJT and project collaboration.</h2>
+          <p data-edit>Based in Laguna, Philippines. Interested in embedded systems, software engineering, AI, IoT, networking, and technical operations roles.</p>
+        </div>
+        <div class="cta-row"><a class="btn btn-primary" href="mailto:Rustilajanlyn@gmail.com" data-edit>Contact Janlyn</a></div>
+      </div>
+    </div></section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div data-edit><span>Janlyn B. Rustila</span> | BS Computer Engineering | LPU Laguna</div>
+      <div data-edit>San Juan, Alaminos Laguna | <span>+63 976 353 2039</span></div>
+      <div><a href="https://www.linkedin.com/in/janlyn-rustila-04abb9206/" target="_blank" rel="noreferrer" style="color:var(--cyan)">LinkedIn</a></div>
+    </div>
+  </footer>
+</div>
+
+<button class="admin-toggle" onclick="toggleAdminPanel()">ADMIN</button>
+
+<div class="admin-panel" id="adminPanel">
+  <div id="loginBox">
+    <h3>Admin Login</h3>
+    <p>Password: <b>admin123</b></p>
+    <input type="password" id="adminPass" placeholder="Enter admin password">
+    <div class="admin-actions"><button class="primary" onclick="loginAdmin()">Login</button></div>
+  </div>
+  <div id="settingsBox" class="hidden">
+    <h3>Admin Settings</h3>
+    <p>Edit text directly on the page, add cards from each section, upload certificate PDFs, then save.</p>
+    <div class="admin-actions">
+      <button class="primary" onclick="saveAll()">Save All</button>
+      <button onclick="addNavSection()">+ Add Top Nav Tab</button>
+      <button onclick="logoutAdmin()">Logout</button>
+      <button onclick="resetAll()">Reset Saved</button>
+    </div>
+    <p>Optional hero/profile image:</p>
+    <label class="admin-file">Upload Image<input type="file" id="profileUpload" accept="image/png,image/webp,image/jpeg" class="hidden" onchange="saveImage(this,'portfolioProfileImage','profileVisual')"></label>
+  </div>
+</div>
+
+<div class="modal" id="certModal">
+  <div class="modal-box">
+    <div class="modal-head"><h3 id="modalTitle">Certification PDF</h3><button class="close-modal" onclick="closeModal()">Close</button></div>
+    <div id="modalBody" style="flex:1"></div>
+  </div>
+</div>
+
+<script>
+var ADMIN_PASSWORD="admin123";
+var STORAGE_KEY="portfolioHTML_PRO_V1";
+var galaxyFrame=null;
+var galaxyCleanup=null;
+
+function toggleAdminPanel(){document.getElementById("adminPanel").classList.toggle("open")}
+function loginAdmin(){
+  if(document.getElementById("adminPass").value===ADMIN_PASSWORD){
+    document.body.classList.add("admin-mode");
+    document.getElementById("loginBox").classList.add("hidden");
+    document.getElementById("settingsBox").classList.remove("hidden");
+    setEditable(true);
+  }else alert("Wrong password.");
+}
+function logoutAdmin(){
+  document.body.classList.remove("admin-mode");
+  document.getElementById("loginBox").classList.remove("hidden");
+  document.getElementById("settingsBox").classList.add("hidden");
+  document.getElementById("adminPanel").classList.remove("open");
+  setEditable(false);
+}
+function setEditable(on){
+  document.querySelectorAll("[data-edit]").forEach(function(el){
+    el.contentEditable=on?"true":"false";
+  });
+}
+function toggleExp(btn){btn.closest(".exp-card").classList.toggle("active")}
+function deleteCard(btn,selector){
+  if(confirm("Delete this item?")) btn.closest(selector).remove();
+}
+function addStat(){
+  document.getElementById("statsList").insertAdjacentHTML("beforeend",'<div class="stat-item"><div class="stat-v" data-edit>0</div><div class="stat-l" data-edit>new metric</div><div class="stat-info" data-edit>Write a short supporting note here.</div><div class="admin-mini"><button onclick="addStatInfo(this)">+ Add note</button><button class="del-btn" onclick="deleteCard(this,\'.stat-item\')">Remove</button></div></div>');
+  setEditable(document.body.classList.contains("admin-mode"));
+}
+function addStatInfo(btn){
+  btn.closest(".stat-item").querySelector(".admin-mini").insertAdjacentHTML("beforebegin",'<div class="stat-info" data-edit>Write another short note here.</div>');
+  setEditable(document.body.classList.contains("admin-mode"));
+}
+function addSocial(){
+  var name=prompt("Button text, e.g. GitHub"); if(!name)return;
+  var link=prompt("Link URL, e.g. https://github.com/username or mailto:name@gmail.com"); if(!link)return;
+  document.getElementById("socialLinks").insertAdjacentHTML("beforeend",'<span class="social-item"><a class="btn btn-secondary" href="'+escapeAttr(link)+'" target="_blank" rel="noreferrer" data-edit>'+escapeHtml(name)+'</a><span class="admin-mini"><button class="del-btn" onclick="deleteCard(this,\'.social-item\')">Remove</button></span></span>');
+  setEditable(document.body.classList.contains("admin-mode"));
+}
+function addExperience(){
+  document.getElementById("experienceList").insertAdjacentHTML("beforeend",'<div class="exp-card active"><button class="exp-head" onclick="toggleExp(this)"><div><div class="exp-role" data-edit>New Experience Title</div><div class="exp-meta" data-edit>Company / Location | Date</div></div><div class="plus">+</div></button><div class="exp-content"><div class="exp-body" data-edit>Write responsibilities, achievements, tools used, and measurable results here.</div><div class="tag-list"><span class="tag" data-edit>New skill</span></div><div class="admin-mini"><button onclick="addExperienceSkill(this)">+ Add skill</button><button onclick="addExperienceInfo(this)">+ Add info tab</button><button class="del-btn" onclick="deleteCard(this,\'.exp-card\')">Delete experience</button></div></div></div>');
+  setEditable(document.body.classList.contains("admin-mode"));
+}
+function addExperienceSkill(btn){
+  btn.closest(".exp-content").querySelector(".tag-list").insertAdjacentHTML("beforeend",'<span class="tag" data-edit>New skill</span>');
+  setEditable(document.body.classList.contains("admin-mode"));
+}
+function addExperienceInfo(btn){
+  btn.closest(".exp-content").querySelector(".admin-mini").insertAdjacentHTML("beforebegin",'<div class="exp-body" data-edit style="margin-top:14px">Additional context, tools, awards, or outcomes can go here.</div>');
+  setEditable(document.body.classList.contains("admin-mode"));
+}
+function addProject(){
+  document.getElementById("projectList").insertAdjacentHTML("beforeend",'<div class="proj-card"><div class="proj-type" data-edit>project category</div><div class="proj-title" data-edit>New Project Title</div><div class="proj-desc" data-edit>Write project description, goal, implementation details, and result here.</div><div class="proj-tags"><span class="tag" data-edit>New Tag</span></div><div class="admin-mini"><button onclick="addProjectTag(this)">+ Add tag</button><button onclick="toggleFeatured(this)">Toggle thesis badge</button><button class="del-btn" onclick="deleteCard(this,\'.proj-card\')">Delete project</button></div></div>');
+  setEditable(document.body.classList.contains("admin-mode"));
+}
+function addProjectTag(btn){
+  btn.closest(".proj-card").querySelector(".proj-tags").insertAdjacentHTML("beforeend",'<span class="tag" data-edit>New Tag</span>');
+  setEditable(document.body.classList.contains("admin-mode"));
+}
+function toggleFeatured(btn){btn.closest(".proj-card").classList.toggle("featured")}
+function addSkillGroup(){
+  document.getElementById("skillsList").insertAdjacentHTML("beforeend",'<div class="skill-group"><div class="sg-title" data-edit>New Skill Group</div><div class="sk" data-edit>New Skill <span class="sk-dot"></span></div><div class="admin-mini"><button onclick="addSkill(this)">+ Add skill</button><button class="del-btn" onclick="deleteCard(this,\'.skill-group\')">Delete group</button></div></div>');
+  setEditable(document.body.classList.contains("admin-mode"));
+}
+function addSkill(btn){
+  btn.closest(".skill-group").querySelector(".admin-mini").insertAdjacentHTML("beforebegin",'<div class="sk" data-edit>New Skill <span class="sk-dot"></span></div>');
+  setEditable(document.body.classList.contains("admin-mode"));
+}
+function addCert(){
+  document.getElementById("certList").insertAdjacentHTML("beforeend",'<div class="cert-item" onclick="openCertModal(this)"><div class="cert-logo" data-edit>ORG</div><div><div class="cert-name" data-edit>New Certification</div><div class="cert-date" data-edit>Month Year</div><input type="file" accept="application/pdf" class="hidden cert-upload"><button class="upload-cert-btn" onclick="uploadCert(event,this)">Upload PDF</button><div class="admin-mini"><button class="del-btn" onclick="deleteCard(this,\'.cert-item\')">Delete cert</button></div></div></div>');
+  setEditable(document.body.classList.contains("admin-mode"));
+}
+function addLeadership(){
+  document.getElementById("leadList").insertAdjacentHTML("beforeend",'<div class="lead-card"><div class="lead-org" data-edit>Organization</div><div class="lead-role" data-edit>New Role</div><div class="lead-period" data-edit>Year - Year</div><div class="lead-body" data-edit>Write leadership responsibilities, contributions, and outcomes here.</div><div class="tag-list"><span class="tag-o" data-edit>New Tag</span></div><div class="admin-mini"><button onclick="addLeadTag(this)">+ Add tag</button><button class="del-btn" onclick="deleteCard(this,\'.lead-card\')">Delete leadership</button></div></div>');
+  setEditable(document.body.classList.contains("admin-mode"));
+}
+function addLeadTag(btn){
+  btn.closest(".lead-card").querySelector(".tag-list").insertAdjacentHTML("beforeend",'<span class="tag-o" data-edit>New Tag</span>');
+  setEditable(document.body.classList.contains("admin-mode"));
+}
+function slugifyTabName(name){
+  return String(name||"new-section").toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"") || ("section-"+Date.now());
+}
+function addNavSection(){
+  var name=prompt("Tab name, example: awards");
+  if(!name)return;
+  var id=slugifyTabName(name);
+  if(document.getElementById(id)) id=id+"-"+Date.now();
+  document.getElementById("navLinks").insertAdjacentHTML("beforeend",'<li class="nav-item-wrap" data-section-id="'+id+'"><a href="#'+id+'" data-edit>'+escapeHtml(name.toLowerCase())+'</a><button class="nav-remove" onclick="removeNavSection(event,this)">x</button></li>');
+  document.getElementById("customSections").insertAdjacentHTML("beforeend",'<section id="'+id+'" class="custom-added-section"><div class="wrap"><div class="section-label" data-edit>'+escapeHtml(name)+'</div><div class="custom-section-card"><div class="proj-title" data-edit>'+escapeHtml(name)+' section</div><div class="proj-desc" data-edit>Write your content here.</div><div class="tag-list"><span class="tag" data-edit>New detail</span></div><div class="admin-mini"><button onclick="addCustomDetail(this)">+ Add detail</button><button class="del-btn" onclick="deleteCustomSection(this)">Delete this section</button></div></div></div></section>');
+  setEditable(document.body.classList.contains("admin-mode"));
+}
+function removeNavSection(e,btn){
+  e.preventDefault();
+  e.stopPropagation();
+  var li=btn.closest(".nav-item-wrap");
+  var id=li ? li.dataset.sectionId : "";
+  if(!li || !confirm("Remove this top tab and its section?")) return;
+  li.remove();
+  var section=document.getElementById(id);
+  if(section)section.remove();
+}
+function addCustomDetail(btn){
+  btn.closest(".custom-section-card").querySelector(".tag-list").insertAdjacentHTML("beforeend",'<span class="tag" data-edit>New detail</span>');
+  setEditable(document.body.classList.contains("admin-mode"));
+}
+function deleteCustomSection(btn){
+  var section=btn.closest("section");
+  if(!section)return;
+  var id=section.id;
+  if(!confirm("Delete this section and its top tab?"))return;
+  section.remove();
+  var nav=document.querySelector('.nav-item-wrap[data-section-id="'+id+'"]');
+  if(nav)nav.remove();
+}
+function syncEditableNavTabs(){
+  document.querySelectorAll(".nav-item-wrap").forEach(function(li){
+    var a=li.querySelector("a");
+    if(!a)return;
+    var text=a.innerText.trim() || "new-tab";
+    var oldId=li.dataset.sectionId;
+    var newId=slugifyTabName(text);
+    if(oldId && document.getElementById(oldId) && oldId!==newId && !document.getElementById(newId)){
+      var sec=document.getElementById(oldId);
+      sec.id=newId;
+      li.dataset.sectionId=newId;
+      a.setAttribute("href","#"+newId);
+      var label=sec.querySelector(".section-label");
+      if(label)label.innerText=text;
+    }else if(oldId){
+      a.setAttribute("href","#"+oldId);
+    }
+  });
+}
+function saveAll(){
+  syncEditableNavTabs();
+  var clone=document.body.cloneNode(true);
+  clone.querySelectorAll("[contenteditable]").forEach(function(el){el.removeAttribute("contenteditable")});
+  clone.querySelectorAll("script").forEach(function(el){el.remove()});
+  var panel=clone.querySelector("#adminPanel");
+  if(panel)panel.classList.remove("open");
+  var login=clone.querySelector("#loginBox");
+  var settings=clone.querySelector("#settingsBox");
+  if(login)login.classList.remove("hidden");
+  if(settings)settings.classList.add("hidden");
+  localStorage.setItem(STORAGE_KEY,clone.innerHTML);
+  alert("Saved in this browser/device.");
+}
+function resetAll(){
+  if(confirm("Reset saved changes?")){
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  }
+}
+function saveImage(input,key,imgId){
+  var file=input.files[0]; if(!file)return;
+  var reader=new FileReader();
+  reader.onload=function(){
+    localStorage.setItem(key,reader.result);
+    var img=document.getElementById(imgId);
+    if(img){img.src=reader.result;img.classList.remove("hidden")}
+  };
+  reader.readAsDataURL(file);
+}
+function loadImages(){
+  [["portfolioProfileImage","profileVisual"]].forEach(function(pair){
+    var saved=localStorage.getItem(pair[0]);
+    var img=document.getElementById(pair[1]);
+    if(saved && img){img.src=saved;img.classList.remove("hidden")}
+  });
+}
+function uploadCert(e,btn){
+  e.stopPropagation();
+  var input=btn.parentElement.querySelector(".cert-upload");
+  input.click();
+  input.onchange=function(){
+    var file=input.files[0]; if(!file)return;
+    var reader=new FileReader();
+    reader.onload=function(){
+      btn.closest(".cert-item").dataset.pdf=reader.result;
+      alert("PDF uploaded. Click Save All after uploading.");
+    };
+    reader.readAsDataURL(file);
+  };
+}
+function openCertModal(item){
+  if(document.body.classList.contains("admin-mode"))return;
+  var title=item.querySelector(".cert-name").innerText;
+  var pdf=item.dataset.pdf;
+  document.getElementById("modalTitle").innerText=title;
+  document.getElementById("modalBody").innerHTML=pdf?'<iframe class="pdf-frame" src="'+pdf+'"></iframe>':'<div class="no-pdf">No PDF uploaded yet. Login as admin, upload a PDF for this certification, then click Save All.</div>';
+  document.getElementById("certModal").classList.add("open");
+}
+function closeModal(){document.getElementById("certModal").classList.remove("open")}
+function escapeHtml(value){
+  return String(value).replace(/[&<>"']/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[ch]});
+}
+function escapeAttr(value){return escapeHtml(value).replace(/`/g,"&#096;")}
+
+document.addEventListener("click",function(e){
+  var editableLink=e.target.closest("a");
+  if(editableLink && document.body.classList.contains("admin-mode")){
+    e.preventDefault();
+    editableLink.focus();
+    return;
+  }
+  if(e.target.classList.contains("modal")) closeModal();
+},true);
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape") closeModal();
+});
+
+function initGalaxy(){
+  if(galaxyFrame) cancelAnimationFrame(galaxyFrame);
+  if(galaxyCleanup) galaxyCleanup();
+  var canvas=document.getElementById("galaxyCanvas");
+  if(!canvas)return;
+  var ctx=canvas.getContext("2d");
+  var reduceMotion=window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var dpr=Math.min(window.devicePixelRatio||1,2);
+  var stars=[];
+  var mouse={x:.5,y:.5,active:false};
+  var opts={
+    density:1,
+    glowIntensity:.3,
+    saturation:0,
+    hueShift:140,
+    twinkleIntensity:.3,
+    rotationSpeed:.1,
+    repulsionStrength:2,
+    starSpeed:.5,
+    speed:1
+  };
+  function resize(){
+    var w=window.innerWidth;
+    var h=window.innerHeight;
+    canvas.width=Math.floor(w*dpr);
+    canvas.height=Math.floor(h*dpr);
+    canvas.style.width=w+"px";
+    canvas.style.height=h+"px";
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    var count=Math.max(130,Math.min(360,Math.floor((w*h/7200)*opts.density)));
+    stars=[];
+    for(var i=0;i<count;i++){
+      stars.push({
+        angle:Math.random()*Math.PI*2,
+        radius:Math.pow(Math.random(),.72)*Math.max(w,h)*.62,
+        size:.45+Math.random()*1.65,
+        depth:.25+Math.random()*.9,
+        phase:Math.random()*Math.PI*2,
+        drift:.25+Math.random()*.75
+      });
+    }
+  }
+  function color(alpha){
+    if(opts.saturation===0)return "rgba(244,247,248,"+alpha+")";
+    var hue=(170+opts.hueShift)%360;
+    return "hsla("+hue+",65%,78%,"+alpha+")";
+  }
+  function draw(now){
+    var w=window.innerWidth;
+    var h=window.innerHeight;
+    var cx=w*.54;
+    var cy=h*.44;
+    ctx.clearRect(0,0,w,h);
+    ctx.save();
+    ctx.globalCompositeOperation="lighter";
+    var t=now*.001*opts.speed;
+    for(var i=0;i<stars.length;i++){
+      var s=stars[i];
+      var rot=reduceMotion?0:t*opts.rotationSpeed*s.drift;
+      var x=cx+Math.cos(s.angle+rot)*s.radius*s.depth;
+      var y=cy+Math.sin(s.angle+rot)*s.radius*s.depth*.58;
+      y+=Math.sin(t*opts.starSpeed+s.phase)*8*s.depth;
+      if(mouse.active){
+        var mx=mouse.x*w;
+        var my=mouse.y*h;
+        var dx=x-mx;
+        var dy=y-my;
+        var dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<170){
+          var force=(1-dist/170)*opts.repulsionStrength*14;
+          x+=(dx/(dist||1))*force;
+          y+=(dy/(dist||1))*force;
+        }
+      }
+      var twinkle=1;
+      if(!reduceMotion)twinkle=1+(Math.sin(t*2+s.phase)*.5+.5)*opts.twinkleIntensity;
+      var alpha=Math.min(.88,(.18+s.depth*.58)*twinkle);
+      var r=s.size*(.7+s.depth)*twinkle;
+      ctx.beginPath();
+      ctx.fillStyle=color(alpha);
+      ctx.shadowBlur=18*opts.glowIntensity*s.depth;
+      ctx.shadowColor="rgba(183,243,74,.58)";
+      ctx.arc(x,y,r,0,Math.PI*2);
+      ctx.fill();
+    }
+    ctx.restore();
+    if(!reduceMotion)galaxyFrame=requestAnimationFrame(draw);
+  }
+  function onMove(e){
+    mouse.x=e.clientX/window.innerWidth;
+    mouse.y=e.clientY/window.innerHeight;
+    mouse.active=true;
+  }
+  function onLeave(){mouse.active=false}
+  resize();
+  window.addEventListener("resize",resize);
+  window.addEventListener("mousemove",onMove);
+  window.addEventListener("mouseleave",onLeave);
+  galaxyCleanup=function(){
+    window.removeEventListener("resize",resize);
+    window.removeEventListener("mousemove",onMove);
+    window.removeEventListener("mouseleave",onLeave);
+  };
+  draw(0);
+}
+
+window.addEventListener("load",function(){
+  var saved=localStorage.getItem(STORAGE_KEY);
+  if(saved) document.body.innerHTML=saved;
+  loadImages();
+  setEditable(false);
+  initGalaxy();
+});
+</script>
+</body>
+</html>

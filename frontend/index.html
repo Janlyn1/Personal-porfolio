@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Janlyn B. Rustila - Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <canvas id="galaxyCanvas" class="galaxy" aria-hidden="true"></canvas>
+
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" data-brand>rustila.dev</a>
+      <div class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#leadership">Leadership</a>
+      </div>
+      <div class="status"><span></span><p data-status>available for OJT</p></div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <section class="hero-copy" aria-labelledby="hero-title">
+          <p class="eyebrow" data-headline>BS Computer Engineering | Embedded Systems | AI + Robotics</p>
+          <h1 id="hero-title" data-name>Janlyn B. Rustila</h1>
+          <p class="hero-summary" data-summary></p>
+          <div class="cta-row" data-socials></div>
+          <div class="focus-grid" data-focus></div>
+        </section>
+
+        <aside class="system-panel" aria-label="Portfolio summary">
+          <div class="panel-title">
+            <div class="lights"><span></span><span></span><span></span></div>
+            <p>janlyn.systems</p>
+          </div>
+          <div class="system-list">
+            <article>
+              <strong>Current profile</strong>
+              <span>Computer Engineering student with hands-on embedded, robotics, and AI projects.</span>
+            </article>
+            <article>
+              <strong>Core strength</strong>
+              <span>Building prototypes with sensors, Raspberry Pi, Python, and real-time logic.</span>
+            </article>
+            <article>
+              <strong>Career direction</strong>
+              <span>Seeking OJT in embedded systems, software, AI, IoT, or technical operations.</span>
+            </article>
+          </div>
+          <div class="stats-grid" data-stats></div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="experience" class="band">
+      <div class="wrap">
+        <div class="section-label">01 - Experience</div>
+        <div class="stack" data-experience></div>
+      </div>
+    </section>
+
+    <section id="projects" class="band">
+      <div class="wrap">
+        <div class="section-label">02 - Selected Engineering Projects</div>
+        <div class="project-grid" data-projects></div>
+      </div>
+    </section>
+
+    <section id="skills" class="band">
+      <div class="wrap">
+        <div class="section-label">03 - Skills and Technologies</div>
+        <div class="skills-grid" data-skills></div>
+        <div class="terminal">
+          <div class="term-bar"><span></span><span></span><span></span><p>janlyn@raspberrypi</p></div>
+          <div class="term-body">
+            <p><b>~$</b> python scanner.py <span># run barcode scanner</span></p>
+            <p><b>~$</b> python train_model.py <span># train AI skin detection model</span></p>
+            <p><b>~$</b> ssh pi@192.168.1.1 <span># connect to Raspberry Pi</span></p>
+            <p><b>ok</b> embedded + AI workflow ready</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="band">
+      <div class="wrap">
+        <div class="section-label">04 - Certifications</div>
+        <div class="cert-grid" data-certifications></div>
+      </div>
+    </section>
+
+    <section id="leadership" class="band">
+      <div class="wrap">
+        <div class="section-label">05 - Leadership and Activities</div>
+        <div class="lead-grid" data-leadership></div>
+      </div>
+    </section>
+
+    <section class="contact-band">
+      <div class="wrap contact-card">
+        <div>
+          <h2>Open to OJT and project collaboration.</h2>
+          <p data-contact></p>
+        </div>
+        <a class="button primary" data-email-link href="#">Contact Janlyn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <p data-footer-name>Janlyn B. Rustila</p>
+      <p data-footer-contact></p>
+    </div>
+  </footer>
+
+  <button class="admin-toggle" type="button" data-admin-toggle>ADMIN</button>
+  <aside class="admin-panel" data-admin-panel>
+    <h2>Certificate Admin</h2>
+    <label>Admin token<input data-admin-token type="password" value="admin123"></label>
+    <div class="script-box">
+      <p>Apps Script</p>
+      <code data-appscript-id>Not loaded yet</code>
+      <div class="script-actions">
+        <a class="button ghost" href="#" target="_blank" rel="noreferrer" data-open-appscript>Open script</a>
+        <button class="button ghost" type="button" data-sync-appscript>Sync certs</button>
+      </div>
+      <small data-appscript-status></small>
+    </div>
+    <label>Issuer<input data-cert-issuer type="text" placeholder="CISCO"></label>
+    <label>Certificate name<input data-cert-name type="text" placeholder="Network Basics"></label>
+    <label>Issue date<input data-cert-date type="month"></label>
+    <label>Credential/PDF URL<input data-cert-url type="url" placeholder="https://..."></label>
+    <div class="admin-actions">
+      <button class="button primary" type="button" data-add-cert>Add cert</button>
+      <button class="button ghost" type="button" data-close-admin>Close</button>
+    </div>
+    <p class="admin-message" data-admin-message></p>
+  </aside>
+
+  <dialog class="cert-modal" data-cert-modal>
+    <div class="modal-head">
+      <h2 data-modal-title>Certificate</h2>
+      <button type="button" data-close-modal>Close</button>
+    </div>
+    <div data-modal-body></div>
+  </dialog>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

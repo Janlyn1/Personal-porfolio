@@ -10,6 +10,7 @@ const HOST = process.env.HOST || "0.0.0.0";
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN || "admin123";
 const ROOT_DIR = path.resolve(__dirname, "..");
 const FRONTEND_DIR = path.join(ROOT_DIR, "frontend");
+const PUBLIC_DIR = path.join(ROOT_DIR, "public");
 const DATA_FILE = path.join(__dirname, "data", "portfolio.json");
 const MAX_BODY_BYTES = 20 * 1024 * 1024;
 
@@ -382,9 +383,10 @@ async function handleApi(req, res, pathname) {
 async function serveStatic(req, res, pathname) {
   const requestedPath = pathname === "/" ? "/index.html" : pathname;
   const decodedPath = decodeURIComponent(requestedPath);
-  const filePath = path.resolve(FRONTEND_DIR, `.${decodedPath}`);
+  const staticRoot = decodedPath.startsWith("/certificates/") ? PUBLIC_DIR : FRONTEND_DIR;
+  const filePath = path.resolve(staticRoot, `.${decodedPath}`);
 
-  if (!filePath.startsWith(FRONTEND_DIR)) {
+  if (!filePath.startsWith(staticRoot)) {
     sendText(res, 403, "Forbidden");
     return;
   }

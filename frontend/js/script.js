@@ -2,6 +2,8 @@
 
 const state = {
   portfolio: null,
+  certificateQuery: "",
+  showAllCertificates: false,
   galaxyFrame: null,
   galaxyCleanup: null
 };
@@ -81,9 +83,9 @@ const FALLBACK_PORTFOLIO = {
       "order": 1
     },
     {
-      "value": "8",
-      "label": "certifications listed",
-      "note": "Cisco, IBM, safety, analytics, networking, and cybersecurity training.",
+      "value": "100",
+      "label": "certificates earned",
+      "note": "Uploaded credentials across cybersecurity, IT, networking, AI, data, cloud, and software.",
       "order": 2
     },
     {
@@ -269,20 +271,644 @@ const FALLBACK_PORTFOLIO = {
   ],
   "certifications": [
     {
+      "id": "a-tour-of-google-cloud-hands-on-labs",
+      "issuer": "Google Cloud",
+      "name": "A Tour of Google Cloud Hands-on Labs",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/a-tour-of-google-cloud-hands-on-labs.pdf",
+      "order": 1
+    },
+    {
+      "id": "advanced-oracle-database-administration",
+      "issuer": "Packt",
+      "name": "Advanced Oracle Database Administration",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/advanced-oracle-database-administration.pdf",
+      "order": 2
+    },
+    {
+      "id": "comptia-network",
+      "issuer": "Infosec",
+      "name": "CompTIA Network+",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/comptia-network.pdf",
+      "order": 3
+    },
+    {
+      "id": "database-structures-and-management-with-mysql",
+      "issuer": "Meta",
+      "name": "Database Structures and Management with MySQL",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/database-structures-and-management-with-mysql.pdf",
+      "order": 4
+    },
+    {
+      "id": "endpoints-and-systems",
+      "issuer": "Cisco",
+      "name": "Endpoints and Systems",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/endpoints-and-systems.pdf",
+      "order": 5
+    },
+    {
+      "id": "ethical-hacking-with-kali-linux",
+      "issuer": "IBM",
+      "name": "Ethical Hacking with Kali Linux",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/ethical-hacking-with-kali-linux.pdf",
+      "order": 6
+    },
+    {
+      "id": "exploitation-and-penetration-testing-with",
+      "issuer": "IBM",
+      "name": "Exploitation and Penetration Testing with Metasploit",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/exploitation-and-penetration-testing-with.pdf",
+      "order": 7
+    },
+    {
+      "id": "foundations-of-oracle-database-administration",
+      "issuer": "Packt",
+      "name": "Foundations of Oracle Database Administration",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/foundations-of-oracle-database-administration.pdf",
+      "order": 8
+    },
+    {
+      "id": "introduction-to-data-engineering",
+      "issuer": "IBM",
+      "name": "Introduction to Data Engineering",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/introduction-to-data-engineering.pdf",
+      "order": 9
+    },
+    {
+      "id": "introduction-to-databases",
+      "issuer": "Meta",
+      "name": "Introduction to Databases",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/introduction-to-databases.pdf",
+      "order": 10
+    },
+    {
+      "id": "introduction-to-ethical-hacking-principles",
+      "issuer": "SkillUp",
+      "name": "Introduction to Ethical Hacking Principles",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/introduction-to-ethical-hacking-principles.pdf",
+      "order": 11
+    },
+    {
+      "id": "network-security",
+      "issuer": "Cisco",
+      "name": "Network Security",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/network-security.pdf",
+      "order": 12
+    },
+    {
+      "id": "oracle-database",
+      "issuer": "Packt",
+      "name": "Oracle Database Administration from Zero to Hero",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/oracle-database.pdf",
+      "order": 13
+    },
+    {
+      "id": "sql-foundations",
+      "issuer": "Microsoft",
+      "name": "SQL Foundations",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/sql-foundations.pdf",
+      "order": 14
+    },
+    {
+      "id": "threat-investigation",
+      "issuer": "Cisco",
+      "name": "Threat Investigation",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/threat-investigation.pdf",
+      "order": 15
+    },
+    {
+      "id": "version-control",
+      "issuer": "Meta",
+      "name": "Version Control",
+      "issueDate": "2026-05",
+      "credentialUrl": "/certificates/version-control.pdf",
+      "order": 16
+    },
+    {
+      "id": "comptia-security",
+      "issuer": "LearnKartS",
+      "name": "CompTIA Security+ Certification Preparation",
+      "issueDate": "2026-03",
+      "credentialUrl": "/certificates/comptia-security.pdf",
+      "order": 17
+    },
+    {
+      "id": "cybersecurity-governance-and-compliance",
+      "issuer": "LearnKartS",
+      "name": "Cybersecurity Governance and Compliance",
+      "issueDate": "2026-03",
+      "credentialUrl": "/certificates/cybersecurity-governance-and-compliance.pdf",
+      "order": 18
+    },
+    {
+      "id": "cybersecurity-operations-and-controls",
+      "issuer": "LearnKartS",
+      "name": "Cybersecurity Operations and Controls",
+      "issueDate": "2026-03",
+      "credentialUrl": "/certificates/cybersecurity-operations-and-controls.pdf",
+      "order": 19
+    },
+    {
+      "id": "cybersecurity-threats-and-defense",
+      "issuer": "LearnKartS",
+      "name": "Cybersecurity Threats and Defense",
+      "issueDate": "2026-03",
+      "credentialUrl": "/certificates/cybersecurity-threats-and-defense.pdf",
+      "order": 20
+    },
+    {
+      "id": "information-security-foundations",
+      "issuer": "LearnKartS",
+      "name": "Information Security Foundations",
+      "issueDate": "2026-03",
+      "credentialUrl": "/certificates/information-security-foundations.pdf",
+      "order": 21
+    },
+    {
+      "id": "accelerate-your-job-search-with-ai",
+      "issuer": "Google",
+      "name": "Accelerate Your Job Search with AI",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/accelerate-your-job-search-with-ai.pdf",
+      "order": 22
+    },
+    {
+      "id": "access-control-concepts",
+      "issuer": "ISC2",
+      "name": "Access Control Concepts",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/access-control-concepts.pdf",
+      "order": 23
+    },
+    {
+      "id": "assets-threats-and-vulnerabilities",
+      "issuer": "Google",
+      "name": "Assets, Threats, and Vulnerabilities",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/assets-threats-and-vulnerabilities.pdf",
+      "order": 24
+    },
+    {
+      "id": "automate-cybersecurity-tasks-with-python",
+      "issuer": "Google",
+      "name": "Automate Cybersecurity Tasks with Python",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/automate-cybersecurity-tasks-with-python.pdf",
+      "order": 25
+    },
+    {
+      "id": "basics-of-cisco-networking",
+      "issuer": "LearnQuest",
+      "name": "Basics of Cisco Networking",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/basics-of-cisco-networking.pdf",
+      "order": 26
+    },
+    {
+      "id": "computer-networks-and-network-security",
+      "issuer": "IBM",
+      "name": "Computer Networks and Network Security",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/computer-networks-and-network-security.pdf",
+      "order": 27
+    },
+    {
+      "id": "connect-and-protect-networks-and-network",
+      "issuer": "Google",
+      "name": "Connect and Protect: Networks and Network Security",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/connect-and-protect-networks-and-network.pdf",
+      "order": 28
+    },
+    {
+      "id": "cybersecurity-architecture",
+      "issuer": "IBM",
+      "name": "Cybersecurity Architecture",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/cybersecurity-architecture.pdf",
+      "order": 29
+    },
+    {
+      "id": "comptia-security-cysa",
+      "issuer": "IBM",
+      "name": "Cybersecurity Assessment: CompTIA Security+ & CYSA+",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/comptia-security-cysa.pdf",
+      "order": 30
+    },
+    {
+      "id": "cybersecurity-case-studies-and-capstone-project",
+      "issuer": "IBM",
+      "name": "Cybersecurity Case Studies and Capstone Project",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/cybersecurity-case-studies-and-capstone-project.pdf",
+      "order": 31
+    },
+    {
+      "id": "cybersecurity-compliance-framework-standards-regulations",
+      "issuer": "IBM",
+      "name": "Cybersecurity Compliance Framework, Standards & Regulations",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/cybersecurity-compliance-framework-standards-regulations.pdf",
+      "order": 32
+    },
+    {
+      "id": "cybersecurity",
+      "issuer": "IBM Skills Network",
+      "name": "Cybersecurity Fundamentals",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/cybersecurity.pdf",
+      "order": 33
+    },
+    {
+      "id": "cybersecurity-job-search-resume-and-interview",
+      "issuer": "IBM",
+      "name": "Cybersecurity Job Search, Resume, and Interview Prep",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/cybersecurity-job-search-resume-and-interview.pdf",
+      "order": 34
+    },
+    {
+      "id": "database-essentials-and-vulnerabilities",
+      "issuer": "IBM",
+      "name": "Database Essentials and Vulnerabilities",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/database-essentials-and-vulnerabilities.pdf",
+      "order": 35
+    },
+    {
+      "id": "encryption-and-cryptography-essentials",
+      "issuer": "IBM",
+      "name": "Encryption and Cryptography Essentials",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/encryption-and-cryptography-essentials.pdf",
+      "order": 36
+    },
+    {
+      "id": "generative-ai-boost-your-cybersecurity-career",
+      "issuer": "IBM",
+      "name": "Generative AI: Boost Your Cybersecurity Career",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/generative-ai-boost-your-cybersecurity-career.pdf",
+      "order": 37
+    },
+    {
+      "id": "google-cybersecurity",
+      "issuer": "Google",
+      "name": "Google Cybersecurity Professional Certificate",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/google-cybersecurity.pdf",
+      "order": 38
+    },
+    {
+      "id": "google-it-support",
+      "issuer": "Google",
+      "name": "Google IT Support Professional Certificate",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/google-it-support.pdf",
+      "order": 39
+    },
+    {
+      "id": "ibm-cybersecurity-analyst",
+      "issuer": "IBM",
+      "name": "IBM Cybersecurity Analyst Professional Certificate",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/ibm-cybersecurity-analyst.pdf",
+      "order": 40
+    },
+    {
+      "id": "ibm-generative-ai-for",
+      "issuer": "IBM",
+      "name": "IBM Generative AI for Cybersecurity Professionals",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/ibm-generative-ai-for.pdf",
+      "order": 41
+    },
+    {
+      "id": "incident-response-and-digital-forensics",
+      "issuer": "IBM",
+      "name": "Incident Response and Digital Forensics",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/incident-response-and-digital-forensics.pdf",
+      "order": 42
+    },
+    {
+      "id": "incident-response-bc-and-dr-concepts",
+      "issuer": "ISC2",
+      "name": "Incident Response, BC, and DR Concepts",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/incident-response-bc-and-dr-concepts.pdf",
+      "order": 43
+    },
+    {
+      "id": "introduction-to-ai",
+      "issuer": "Google",
+      "name": "Introduction to AI",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/introduction-to-ai.pdf",
+      "order": 44
+    },
+    {
+      "id": "introduction-to-business-analysis",
+      "issuer": "IBM",
+      "name": "Introduction to Business Analysis",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/introduction-to-business-analysis.pdf",
+      "order": 45
+    },
+    {
+      "id": "introduction-to-cloud-computing",
+      "issuer": "IBM",
+      "name": "Introduction to Cloud Computing",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/introduction-to-cloud-computing.pdf",
+      "order": 46
+    },
+    {
+      "id": "introduction-to-computers",
+      "issuer": "Microsoft",
+      "name": "Introduction to Computers",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/introduction-to-computers.pdf",
+      "order": 47
+    },
+    {
+      "id": "introduction-to-cybersecurity-essentials",
+      "issuer": "IBM",
+      "name": "Introduction to Cybersecurity Essentials",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/introduction-to-cybersecurity-essentials.pdf",
+      "order": 48
+    },
+    {
+      "id": "introduction-to-cybersecurity-tools-cyberattacks",
+      "issuer": "IBM",
+      "name": "Introduction to Cybersecurity Tools & Cyberattacks",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/introduction-to-cybersecurity-tools-cyberattacks.pdf",
+      "order": 49
+    },
+    {
+      "id": "introduction-to-hardware-and-operating-systems",
+      "issuer": "IBM",
+      "name": "Introduction to Hardware and Operating Systems",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/introduction-to-hardware-and-operating-systems.pdf",
+      "order": 50
+    },
+    {
+      "id": "introduction-to-networking-and-storage",
+      "issuer": "IBM",
+      "name": "Introduction to Networking and Storage",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/introduction-to-networking-and-storage.pdf",
+      "order": 51
+    },
+    {
+      "id": "introduction-to-software-programming-and",
+      "issuer": "IBM",
+      "name": "Introduction to Software, Programming, and Databases",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/introduction-to-software-programming-and.pdf",
+      "order": 52
+    },
+    {
+      "id": "it-security-defense-against-the-digital-dark-arts",
+      "issuer": "Google",
+      "name": "IT Security: Defense against the digital dark arts",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/it-security-defense-against-the-digital-dark-arts.pdf",
+      "order": 53
+    },
+    {
+      "id": "network-security1",
+      "issuer": "ISC2",
+      "name": "Network Security",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/network-security1.pdf",
+      "order": 54
+    },
+    {
+      "id": "operating-systems-and-you-becoming-a-power",
+      "issuer": "Google",
+      "name": "Operating Systems and You: Becoming a Power User",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/operating-systems-and-you-becoming-a-power.pdf",
+      "order": 55
+    },
+    {
+      "id": "operating-systems-overview-administration-and",
+      "issuer": "IBM",
+      "name": "Operating Systems: Overview, Administration, and Security",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/operating-systems-overview-administration-and.pdf",
+      "order": 56
+    },
+    {
+      "id": "penetration-testing-threat-hunting-and",
+      "issuer": "IBM",
+      "name": "Penetration Testing, Threat Hunting, and Cryptography",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/penetration-testing-threat-hunting-and.pdf",
+      "order": 57
+    },
+    {
+      "id": "play-it-safe-manage-security-risks",
+      "issuer": "Google",
+      "name": "Play It Safe: Manage Security Risks",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/play-it-safe-manage-security-risks.pdf",
+      "order": 58
+    },
+    {
+      "id": "put-it-to-work-prepare-for-cybersecurity-jobs",
+      "issuer": "Google",
+      "name": "Put It to Work: Prepare for Cybersecurity Jobs",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/put-it-to-work-prepare-for-cybersecurity-jobs.pdf",
+      "order": 59
+    },
+    {
+      "id": "security-operations",
+      "issuer": "ISC2",
+      "name": "Security Operations",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/security-operations.pdf",
+      "order": 60
+    },
+    {
+      "id": "security-principles",
+      "issuer": "ISC2",
+      "name": "Security Principles",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/security-principles.pdf",
+      "order": 61
+    },
+    {
+      "id": "sound-the-alarm-detection-and-response",
+      "issuer": "Google",
+      "name": "Sound the Alarm: Detection and Response",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/sound-the-alarm-detection-and-response.pdf",
+      "order": 62
+    },
+    {
+      "id": "start-writing-prompts-like-a-pro",
+      "issuer": "Google",
+      "name": "Start Writing Prompts like a Pro",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/start-writing-prompts-like-a-pro.pdf",
+      "order": 63
+    },
+    {
+      "id": "system-administration-and-it-infrastructure",
+      "issuer": "Google",
+      "name": "System Administration and IT Infrastructure Services",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/system-administration-and-it-infrastructure.pdf",
+      "order": 64
+    },
+    {
+      "id": "the-bits-and-bytes-of-computer-networking",
+      "issuer": "Google",
+      "name": "The Bits and Bytes of Computer Networking",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/the-bits-and-bytes-of-computer-networking.pdf",
+      "order": 65
+    },
+    {
+      "id": "the-foundations-of-cybersecurity",
+      "issuer": "Kennesaw State University",
+      "name": "The Foundations of Cybersecurity",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/the-foundations-of-cybersecurity.pdf",
+      "order": 66
+    },
+    {
+      "id": "tools-of-the-trade-linux-and-sql",
+      "issuer": "Google",
+      "name": "Tools of the Trade: Linux and SQL",
+      "issueDate": "2026-01",
+      "credentialUrl": "/certificates/tools-of-the-trade-linux-and-sql.pdf",
+      "order": 67
+    },
+    {
+      "id": "crash-course-on-python",
+      "issuer": "Google",
+      "name": "Crash Course on Python",
+      "issueDate": "2025-12",
+      "credentialUrl": "/certificates/crash-course-on-python.pdf",
+      "order": 68
+    },
+    {
+      "id": "foundations-of-cybersecurity",
+      "issuer": "Google",
+      "name": "Foundations of Cybersecurity",
+      "issueDate": "2025-12",
+      "credentialUrl": "/certificates/foundations-of-cybersecurity.pdf",
+      "order": 69
+    },
+    {
+      "id": "foundations-data-data-everywhere",
+      "issuer": "Google",
+      "name": "Foundations: Data, Data, Everywhere",
+      "issueDate": "2025-12",
+      "credentialUrl": "/certificates/foundations-data-data-everywhere.pdf",
+      "order": 70
+    },
+    {
+      "id": "generative-ai-introduction-and-applications",
+      "issuer": "IBM",
+      "name": "Generative AI: Introduction and Applications",
+      "issueDate": "2025-12",
+      "credentialUrl": "/certificates/generative-ai-introduction-and-applications.pdf",
+      "order": 71
+    },
+    {
+      "id": "generative-ai-prompt-engineering-basics",
+      "issuer": "IBM",
+      "name": "Generative AI: Prompt Engineering Basics",
+      "issueDate": "2025-12",
+      "credentialUrl": "/certificates/generative-ai-prompt-engineering-basics.pdf",
+      "order": 72
+    },
+    {
+      "id": "introduction-to-artificial-intelligence-ai",
+      "issuer": "IBM",
+      "name": "Introduction to Artificial Intelligence (AI)",
+      "issueDate": "2025-12",
+      "credentialUrl": "/certificates/introduction-to-artificial-intelligence-ai.pdf",
+      "order": 73
+    },
+    {
       "id": "ibm-intro-cybersecurity",
       "issuer": "IBM",
       "name": "Introduction to Cybersecurity",
       "issueDate": "2025-12",
       "credentialUrl": "",
-      "order": 1
+      "order": 74
     },
     {
-      "id": "ibm-machine-learning-python",
+      "id": "introduction-to-cybersecurity-careers",
+      "issuer": "IBM",
+      "name": "Introduction to Cybersecurity Careers",
+      "issueDate": "2025-12",
+      "credentialUrl": "/certificates/introduction-to-cybersecurity-careers.pdf",
+      "order": 75
+    },
+    {
+      "id": "introduction-to-devops",
+      "issuer": "IBM",
+      "name": "Introduction to DevOps",
+      "issueDate": "2025-12",
+      "credentialUrl": "/certificates/introduction-to-devops.pdf",
+      "order": 76
+    },
+    {
+      "id": "introduction-to-software-engineering",
+      "issuer": "IBM",
+      "name": "Introduction to Software Engineering",
+      "issueDate": "2025-12",
+      "credentialUrl": "/certificates/introduction-to-software-engineering.pdf",
+      "order": 77
+    },
+    {
+      "id": "machine-learning-with-python",
       "issuer": "IBM",
       "name": "Machine Learning with Python",
       "issueDate": "2025-12",
-      "credentialUrl": "",
-      "order": 2
+      "credentialUrl": "/certificates/machine-learning-with-python.pdf",
+      "order": 78
+    },
+    {
+      "id": "security-operations-center-soc",
+      "issuer": "Cisco",
+      "name": "Security Operations Center (SOC)",
+      "issueDate": "2025-12",
+      "credentialUrl": "/certificates/security-operations-center-soc.pdf",
+      "order": 79
+    },
+    {
+      "id": "what-is-data-science",
+      "issuer": "IBM",
+      "name": "What is Data Science?",
+      "issueDate": "2025-12",
+      "credentialUrl": "/certificates/what-is-data-science.pdf",
+      "order": 80
     },
     {
       "id": "cisco-ccna-srwe",
@@ -290,7 +916,7 @@ const FALLBACK_PORTFOLIO = {
       "name": "CCNA: Switching, Routing & Wireless Essentials",
       "issueDate": "2025-10",
       "credentialUrl": "",
-      "order": 3
+      "order": 81
     },
     {
       "id": "cisco-networking-devices",
@@ -298,7 +924,7 @@ const FALLBACK_PORTFOLIO = {
       "name": "Networking Devices and Initial Configuration",
       "issueDate": "2025-05",
       "credentialUrl": "",
-      "order": 4
+      "order": 82
     },
     {
       "id": "cisco-data-analytics",
@@ -306,7 +932,7 @@ const FALLBACK_PORTFOLIO = {
       "name": "Data Analytics Essentials",
       "issueDate": "2025-04",
       "credentialUrl": "",
-      "order": 5
+      "order": 83
     },
     {
       "id": "cisco-network-basics",
@@ -314,15 +940,23 @@ const FALLBACK_PORTFOLIO = {
       "name": "Network Basics",
       "issueDate": "2025-04",
       "credentialUrl": "",
-      "order": 6
+      "order": 84
     },
     {
-      "id": "cisco-pcap-python",
-      "issuer": "CISCO",
-      "name": "PCAP - Programming Essentials in Python",
-      "issueDate": "2024-05",
-      "credentialUrl": "",
-      "order": 7
+      "id": "algorithms-for-searching-sorting-and-indexing",
+      "issuer": "University of Colorado Boulder",
+      "name": "Algorithms for Searching, Sorting, and Indexing",
+      "issueDate": "2024-07",
+      "credentialUrl": "/certificates/algorithms-for-searching-sorting-and-indexing.pdf",
+      "order": 85
+    },
+    {
+      "id": "python-data-structures",
+      "issuer": "University of Michigan",
+      "name": "Python Data Structures",
+      "issueDate": "2024-07",
+      "credentialUrl": "/certificates/python-data-structures.pdf",
+      "order": 86
     },
     {
       "id": "itg-bosh-safety-officer",
@@ -330,7 +964,111 @@ const FALLBACK_PORTFOLIO = {
       "name": "BOSH Training Course for Safety Officer",
       "issueDate": "2024-05",
       "credentialUrl": "",
-      "order": 8
+      "order": 87
+    },
+    {
+      "id": "cisco-pcap-python",
+      "issuer": "CISCO",
+      "name": "PCAP - Programming Essentials in Python",
+      "issueDate": "2024-05",
+      "credentialUrl": "",
+      "order": 88
+    },
+    {
+      "id": "verify-at",
+      "issuer": "Deprecated Guided Projects",
+      "name": "Application of Data Analysis in Business with R Programming",
+      "issueDate": "2023-10",
+      "credentialUrl": "/certificates/verify-at.pdf",
+      "order": 89
+    },
+    {
+      "id": "foundations-of-computer-science",
+      "issuer": "LearnQuest",
+      "name": "Foundations of Computer Science",
+      "issueDate": "2023-10",
+      "credentialUrl": "/certificates/foundations-of-computer-science.pdf",
+      "order": 90
+    },
+    {
+      "id": "foundations-of-data-science",
+      "issuer": "Google",
+      "name": "Foundations of Data Science",
+      "issueDate": "2023-10",
+      "credentialUrl": "/certificates/foundations-of-data-science.pdf",
+      "order": 91
+    },
+    {
+      "id": "foundations-of-digital-marketing-and-e-commerce",
+      "issuer": "Google",
+      "name": "Foundations of Digital Marketing and E-commerce",
+      "issueDate": "2023-10",
+      "credentialUrl": "/certificates/foundations-of-digital-marketing-and-e-commerce.pdf",
+      "order": 92
+    },
+    {
+      "id": "foundations-of-project-management",
+      "issuer": "Google",
+      "name": "Foundations of Project Management",
+      "issueDate": "2023-10",
+      "credentialUrl": "/certificates/foundations-of-project-management.pdf",
+      "order": 93
+    },
+    {
+      "id": "introduction-to-basic-game-development-using",
+      "issuer": "Coursera",
+      "name": "Introduction to Basic Game Development using Scratch",
+      "issueDate": "2023-10",
+      "credentialUrl": "/certificates/introduction-to-basic-game-development-using.pdf",
+      "order": 94
+    },
+    {
+      "id": "introduction-to-computer",
+      "issuer": "LearnQuest",
+      "name": "Introduction to Computer Programming with Visual Basic",
+      "issueDate": "2023-10",
+      "credentialUrl": "/certificates/introduction-to-computer.pdf",
+      "order": 95
+    },
+    {
+      "id": "introduction-to-generative-ai",
+      "issuer": "Google Cloud",
+      "name": "Introduction to Generative AI",
+      "issueDate": "2023-10",
+      "credentialUrl": "/certificates/introduction-to-generative-ai.pdf",
+      "order": 96
+    },
+    {
+      "id": "introduction-to-visual-basic-programming",
+      "issuer": "LearnQuest",
+      "name": "Introduction to Visual Basic Programming",
+      "issueDate": "2023-10",
+      "credentialUrl": "/certificates/introduction-to-visual-basic-programming.pdf",
+      "order": 97
+    },
+    {
+      "id": "technical-support-fundamentals",
+      "issuer": "Google",
+      "name": "Technical Support Fundamentals",
+      "issueDate": "2023-10",
+      "credentialUrl": "/certificates/technical-support-fundamentals.pdf",
+      "order": 98
+    },
+    {
+      "id": "visual-basic-programming-classes-and-collections",
+      "issuer": "LearnQuest",
+      "name": "Visual Basic Programming: Classes and Collections",
+      "issueDate": "2023-10",
+      "credentialUrl": "/certificates/visual-basic-programming-classes-and-collections.pdf",
+      "order": 99
+    },
+    {
+      "id": "visual-basic-programming-inheritance-and",
+      "issuer": "LearnQuest",
+      "name": "Visual Basic Programming: Inheritance and Polymorphism",
+      "issueDate": "2023-10",
+      "credentialUrl": "/certificates/visual-basic-programming-inheritance-and.pdf",
+      "order": 100
     }
   ],
   "leadership": [
@@ -519,8 +1257,18 @@ function renderSkills(groups = []) {
 
 function renderCertifications(items = []) {
   const root = $("[data-certifications]");
+  const summary = $("[data-cert-summary]");
+  const showAll = $("[data-cert-show-all]");
+  const actions = showAll?.parentElement;
+  const query = state.certificateQuery.trim().toLowerCase();
+  const filtered = query
+    ? items.filter(cert => `${cert.issuer || ""} ${cert.name || ""} ${cert.displayDate || cert.issueDate || ""}`.toLowerCase().includes(query))
+    : items;
+  const visible = state.showAllCertificates || query ? filtered : filtered.slice(0, 12);
+
   clear(root);
-  items.forEach(cert => {
+  visible.forEach(cert => {
+    const hasFile = Boolean(cert.credentialUrl || cert.pdfUrl);
     const card = create("button", {
       className: "cert-card",
       attrs: { type: "button", "data-cert-id": cert.id || "" }
@@ -528,12 +1276,25 @@ function renderCertifications(items = []) {
       create("span", { className: "cert-logo", text: cert.issuer || "ORG" }),
       create("span", {}, [
         create("h3", { text: cert.name || "" }),
-        create("p", { text: cert.displayDate || cert.issueDate || "" })
+        create("p", { text: cert.displayDate || cert.issueDate || "" }),
+        create("p", { className: "cert-file", text: hasFile ? "View PDF" : "Credential listed" })
       ])
     ]);
     card.addEventListener("click", () => openCertificate(cert));
     root.append(card);
   });
+
+  if (summary) {
+    summary.textContent = query
+      ? `${filtered.length} matching certificate${filtered.length === 1 ? "" : "s"}`
+      : `${items.length} certificates and credentials`;
+  }
+
+  if (showAll && actions) {
+    const hasMore = !query && items.length > 12;
+    actions.hidden = !hasMore;
+    showAll.textContent = state.showAllCertificates ? "Show featured certificates" : `Show all ${items.length} certificates`;
+  }
 }
 
 function renderLeadership(items = []) {
@@ -765,6 +1526,21 @@ function initModal() {
   });
 }
 
+function initCertificateControls() {
+  const search = $("[data-cert-search]");
+  const showAll = $("[data-cert-show-all]");
+
+  search.addEventListener("input", event => {
+    state.certificateQuery = event.target.value;
+    renderCertifications(state.portfolio?.certifications || []);
+  });
+
+  showAll.addEventListener("click", () => {
+    state.showAllCertificates = !state.showAllCertificates;
+    renderCertifications(state.portfolio?.certifications || []);
+  });
+}
+
 function initGalaxy() {
   if (state.galaxyFrame) cancelAnimationFrame(state.galaxyFrame);
   if (state.galaxyCleanup) state.galaxyCleanup();
@@ -884,6 +1660,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initGalaxy();
   initAdmin();
   initModal();
+  initCertificateControls();
 
   try {
     renderPortfolio(await loadPortfolio());

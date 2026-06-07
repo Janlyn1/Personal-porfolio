@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=standalone-1">
+  <link rel="stylesheet" href="css/style.css?v=certificates-1">
 </head>
 <body>
   <canvas id="galaxyCanvas" class="galaxy" aria-hidden="true"></canvas>
@@ -90,7 +90,20 @@
     <section id="certifications" class="band">
       <div class="wrap">
         <div class="section-label">05 - Certifications</div>
+        <div class="cert-toolbar">
+          <div>
+            <strong data-cert-summary>Certificates and credentials</strong>
+            <span>Click any certificate to view its uploaded PDF.</span>
+          </div>
+          <label class="cert-search">
+            <span class="sr-only">Search certificates</span>
+            <input data-cert-search type="search" placeholder="Search certificates">
+          </label>
+        </div>
         <div class="cert-grid" data-certifications></div>
+        <div class="cert-actions">
+          <button class="button ghost" type="button" data-cert-show-all>Show all certificates</button>
+        </div>
       </div>
     </section>
 
@@ -151,6 +164,6 @@
     <div data-modal-body></div>
   </dialog>
 
-  <script src="js/script.js?v=standalone-1" defer></script>
+  <script src="js/script.js?v=certificates-1" defer></script>
 </body>
 </html>

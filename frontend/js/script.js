@@ -60,7 +60,7 @@ const FALLBACK_PORTFOLIO = {
     "brand": "rustila.dev",
     "role": "Computer Engineering Student & Network Surveillance Engineer Intern",
     "headline": "Globe Telecom DSOC | Telecom & Network Operations | Cybersecurity",
-    "summary": "Computer Engineering student and Network Surveillance Engineer Intern at Globe Telecom, working with the Domain Service Operations Center (DSOC). I combine hands-on exposure to live telecom operations with certificate-backed knowledge across networking, cybersecurity, IT systems, cloud, data, AI, and embedded engineering.",
+    "summary": "Computer Engineering student and Network Surveillance Engineer Intern at Globe Telecom DSOC. I combine hands-on telecom operations experience with certificate-backed knowledge and applied engineering work, including a YOLOv8n-powered thesis for psoriasis and eczema screening.",
     "status": "Globe Telecom DSOC intern",
     "location": "San Juan, Alaminos, Laguna, Philippines",
     "phone": "+63 976 353 2039",
@@ -99,19 +99,8 @@ const FALLBACK_PORTFOLIO = {
         "value": "Live operations exposure supported by 100 credentials and practical engineering projects."
       }
     ],
-    "contactPitch": "Currently gaining hands-on experience in Globe Telecom DSOC and open to future entry-level opportunities in network operations, NOC/SOC, cybersecurity, IT infrastructure, telecom, and systems engineering.",
-    "socials": [
-      {
-        "label": "View LinkedIn",
-        "url": "https://www.linkedin.com/in/janlyn-rustila-04abb9206/",
-        "primary": true
-      },
-      {
-        "label": "Email for Interview",
-        "url": "mailto:Rustilajanlyn@gmail.com",
-        "primary": false
-      }
-    ]
+    "contactPitch": "Computer Engineering student and Globe Telecom DSOC intern interested in network operations, NOC/SOC, cybersecurity, IT infrastructure, telecom, AI, and systems engineering opportunities.",
+    "socials": []
   },
   "integrations": {
     "appsScript": {
@@ -180,8 +169,28 @@ const FALLBACK_PORTFOLIO = {
   ],
   "projects": [
     {
+      "title": "ROBODERM: AI-Assisted Skin Disease Screening System",
+      "type": "thesis | YOLOv8n | computer vision | healthcare AI",
+      "description": "Developed a full-stack thesis system that uses a trained YOLOv8n model to screen skin images for psoriasis and eczema. The system presents confidence-based results as screening support and routes cases for doctor review instead of treating AI output as a final diagnosis.",
+      "impact": [
+        "Implemented image preprocessing, YOLO inference, lesion bounding boxes, confidence scoring, attention heatmaps, and normal/no-detection handling.",
+        "Built connected patient, doctor, and admin workflows with scan history, doctor validation and correction, referral routing, notifications, and generated PDF reports.",
+        "Designed the deployment flow for Flask-based web access, remote inference support, and a Raspberry Pi 5 screening node."
+      ],
+      "tags": [
+        "YOLOv8n",
+        "Python",
+        "Flask",
+        "Computer Vision",
+        "Raspberry Pi 5",
+        "Healthcare AI"
+      ],
+      "featured": true,
+      "order": 1
+    },
+    {
       "title": "CampusVital: Smart Health Monitoring Kiosk",
-      "type": "thesis project | embedded systems | IoT",
+      "type": "embedded systems | IoT | health technology",
       "description": "A self-service campus health kiosk concept that combines sensors, embedded control, and real-time user feedback for basic vital monitoring workflows.",
       "impact": [
         "Built around a real campus wellness use case with repeatable measurement flow.",
@@ -193,8 +202,8 @@ const FALLBACK_PORTFOLIO = {
         "Sensors",
         "Health IoT"
       ],
-      "featured": true,
-      "order": 1
+      "featured": false,
+      "order": 2
     },
     {
       "title": "SumoBot - Autonomous Sumo Robot",
@@ -210,7 +219,7 @@ const FALLBACK_PORTFOLIO = {
         "Embedded C"
       ],
       "featured": false,
-      "order": 2
+      "order": 3
     },
     {
       "title": "Line-Following Robot",
@@ -224,23 +233,6 @@ const FALLBACK_PORTFOLIO = {
         "Sensors",
         "Real-Time Logic",
         "Embedded"
-      ],
-      "featured": false,
-      "order": 3
-    },
-    {
-      "title": "AI Skin Disease Scanner",
-      "type": "AI | machine learning | Raspberry Pi",
-      "description": "Built a proof-of-concept AI scanner for psoriasis and eczema support using Raspberry Pi, image processing, and a trained machine learning workflow.",
-      "impact": [
-        "Combined image capture, model inference, and user feedback in one prototype flow.",
-        "Shows ability to connect AI concepts with practical embedded deployment."
-      ],
-      "tags": [
-        "Raspberry Pi",
-        "Python",
-        "ML Model",
-        "AI"
       ],
       "featured": false,
       "order": 4
@@ -1209,18 +1201,20 @@ function renderHero(data) {
     roleLine.textContent = [profile.role, profile.school, profile.location].filter(Boolean).join(" | ");
   }
 
-  const socials = $("[data-socials]");
-  clear(socials);
-  (profile.socials || []).forEach(social => {
-    socials.append(create("a", {
-      className: `button ${social.primary ? "primary" : ""}`,
-      text: social.primary ? `${social.label} ->` : social.label,
-      attrs: {
-        href: social.url || "#",
-        target: social.url && social.url.startsWith("http") ? "_blank" : null,
-        rel: social.url && social.url.startsWith("http") ? "noreferrer" : null
-      }
-    }));
+  const quickContact = $("[data-quick-contact]");
+  clear(quickContact);
+  [
+    { label: "Email", value: profile.email, href: profile.email ? `mailto:${profile.email}` : "" },
+    { label: "Phone", value: profile.phone, href: profile.phone ? `tel:${profile.phone.replace(/\s/g, "")}` : "" },
+    { label: "Location", value: profile.location, href: "" }
+  ].filter(item => item.value).forEach(item => {
+    const value = item.href
+      ? create("a", { text: item.value, attrs: { href: item.href } })
+      : create("strong", { text: item.value });
+    quickContact.append(create("div", {}, [
+      create("span", { text: item.label }),
+      value
+    ]));
   });
 
   const focus = $("[data-focus]");
@@ -1251,7 +1245,12 @@ function renderHero(data) {
   });
 
   const email = profile.email ? `mailto:${profile.email}` : "#";
+  const phone = profile.phone ? `tel:${profile.phone.replace(/\s/g, "")}` : "#";
   $("[data-email-link]").setAttribute("href", email);
+  $("[data-email-link]").textContent = profile.email || "";
+  $("[data-phone-link]").setAttribute("href", phone);
+  $("[data-phone-link]").textContent = profile.phone || "";
+  $("[data-contact-location]").textContent = profile.location || "";
   $("[data-contact]").textContent = profile.contactPitch || `Based in ${profile.location || "Laguna, Philippines"}. Interested in embedded systems, software engineering, AI, IoT, networking, and technical operations roles.`;
   $("[data-footer-name]").textContent = `${profile.name || "Janlyn B. Rustila"} | ${profile.role || "Computer Engineering"} | ${profile.school || "LPU Laguna"}`;
   $("[data-footer-contact]").textContent = `${profile.location || ""} | ${profile.phone || ""}`;

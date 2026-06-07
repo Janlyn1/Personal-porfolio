@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Janlyn B. Rustila - Portfolio</title>
-  <meta name="description" content="Professional portfolio of Janlyn B. Rustila, a Computer Engineering OJT candidate focused on embedded systems, AI, IoT, robotics, networking, and automation.">
+  <meta name="description" content="Professional portfolio of Janlyn B. Rustila, a Computer Engineering student and Globe Telecom DSOC Network Surveillance Engineer Intern focused on telecom, network operations, cybersecurity, and systems engineering.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=certificates-1">
+  <link rel="stylesheet" href="css/style.css?v=credential-story-1">
 </head>
 <body>
   <canvas id="galaxyCanvas" class="galaxy" aria-hidden="true"></canvas>
@@ -18,6 +18,7 @@
       <a class="brand" href="#top" data-brand>rustila.dev</a>
       <div class="nav-links">
         <a href="#fit">Why Me</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#certifications">Certifications</a>
@@ -31,7 +32,7 @@
     <header class="hero">
       <div class="wrap hero-grid">
         <section class="hero-copy" aria-labelledby="hero-title">
-          <p class="eyebrow" data-headline>BS Computer Engineering | Embedded Systems | AI + Robotics</p>
+          <p class="eyebrow" data-headline>Globe Telecom DSOC | Telecom & Network Operations | Cybersecurity</p>
           <h1 id="hero-title" data-name>Janlyn B. Rustila</h1>
           <p class="hero-kicker" data-role-line></p>
           <p class="hero-summary" data-summary></p>
@@ -66,7 +67,7 @@
 
     <section id="projects" class="band">
       <div class="wrap">
-        <div class="section-label">03 - Selected Engineering Projects</div>
+        <div class="section-label">03 - Applied Engineering Projects</div>
         <div class="project-grid" data-projects></div>
       </div>
     </section>
@@ -78,10 +79,10 @@
         <div class="terminal">
           <div class="term-bar"><span></span><span></span><span></span><p>janlyn@raspberrypi</p></div>
           <div class="term-body">
-            <p><b>~$</b> python scanner.py <span># run barcode scanner</span></p>
-            <p><b>~$</b> python train_model.py <span># train AI skin detection model</span></p>
-            <p><b>~$</b> ssh pi@192.168.1.1 <span># connect to Raspberry Pi</span></p>
-            <p><b>ok</b> embedded + AI workflow ready</p>
+            <p><b>~$</b> monitor network --realtime <span># observe service performance</span></p>
+            <p><b>~$</b> investigate incident --triage <span># document and escalate</span></p>
+            <p><b>~$</b> python automate_task.py <span># improve repeatable workflows</span></p>
+            <p><b>ok</b> operations + security + engineering mindset ready</p>
           </div>
         </div>
       </div>
@@ -90,15 +91,24 @@
     <section id="certifications" class="band">
       <div class="wrap">
         <div class="section-label">05 - Certifications</div>
+        <div class="credential-intro">
+          <p class="meta">CERTIFICATE-BACKED CAPABILITY PORTFOLIO</p>
+          <h2>Learning built around the systems I want to operate, secure, and improve.</h2>
+          <p>My credentials support a broad technical foundation beyond robotics: live network operations, cybersecurity and SOC practices, IT infrastructure, cloud, databases, data, software, AI, and disciplined project delivery.</p>
+        </div>
+        <div class="credential-domain-grid" data-credential-domains></div>
         <div class="cert-toolbar">
           <div>
             <strong data-cert-summary>Certificates and credentials</strong>
-            <span>Click any certificate to view its uploaded PDF.</span>
+            <span data-cert-context>Verified learning evidence across my technical focus areas.</span>
           </div>
-          <label class="cert-search">
-            <span class="sr-only">Search certificates</span>
-            <input data-cert-search type="search" placeholder="Search certificates">
-          </label>
+          <div class="cert-tools">
+            <button class="button ghost cert-clear" type="button" data-cert-clear hidden>Clear focus</button>
+            <label class="cert-search">
+              <span class="sr-only">Search certificates</span>
+              <input data-cert-search type="search" placeholder="Search certificates">
+            </label>
+          </div>
         </div>
         <div class="cert-grid" data-certifications></div>
         <div class="cert-actions">
@@ -117,7 +127,7 @@
     <section id="contact" class="contact-band">
       <div class="wrap contact-card">
         <div>
-          <h2>Ready for interview and OJT opportunities.</h2>
+          <h2>Ready to bring a network operations mindset to the next technical team.</h2>
           <p data-contact></p>
         </div>
         <a class="button primary" data-email-link href="#">Invite to Interview</a>
@@ -164,6 +174,6 @@
     <div data-modal-body></div>
   </dialog>
 
-  <script src="js/script.js?v=certificates-1" defer></script>
+  <script src="js/script.js?v=credential-story-1" defer></script>
 </body>
 </html>

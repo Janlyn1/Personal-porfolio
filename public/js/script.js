@@ -3,57 +3,103 @@
 const state = {
   portfolio: null,
   certificateQuery: "",
+  certificateDomain: "",
   showAllCertificates: false,
   galaxyFrame: null,
   galaxyCleanup: null
 };
 
+const CERTIFICATE_DOMAINS = [
+  {
+    id: "cybersecurity",
+    title: "Cybersecurity & SOC",
+    description: "Security operations, threat investigation, incident response, risk, compliance, ethical hacking, and defensive practices.",
+    keywords: ["cyber", "security", "threat", "incident", "detection", "response", "forensic", "cryptograph", "encrypt", "hacking", "kali", "penetration", "cysa", "access control", "vulnerabil", "defense", "soc"]
+  },
+  {
+    id: "networking",
+    title: "Networking & Telecom Operations",
+    description: "Network fundamentals, connectivity, service visibility, endpoints, and operational knowledge that supports my current DSOC work.",
+    keywords: ["network", "networking", "endpoint", "telecom", "storage", "ccna", "routing", "switching"]
+  },
+  {
+    id: "systems-cloud",
+    title: "IT Systems & Cloud",
+    description: "Cloud platforms, operating systems, hardware, system administration, technical support, and dependable IT service foundations.",
+    keywords: ["cloud", "operating system", "system administration", "it support", "technical support", "hardware", "computer", "devops", "version control"]
+  },
+  {
+    id: "data-software",
+    title: "Software, Data & Databases",
+    description: "Programming, automation, SQL, database administration, data foundations, and software engineering problem-solving.",
+    keywords: ["database", "sql", "data", "python", "algorithm", "programming", "software", "visual basic", "oracle", "game development"]
+  },
+  {
+    id: "ai",
+    title: "AI & Emerging Technology",
+    description: "Artificial intelligence, machine learning, generative AI, and prompt engineering for practical technical workflows.",
+    keywords: ["artificial intelligence", "machine learning", "generative ai", "prompt", "introduction to ai", " ai "]
+  },
+  {
+    id: "professional",
+    title: "Professional & Operations",
+    description: "Project delivery, business analysis, career readiness, and cross-functional skills that support reliable technical work.",
+    keywords: ["project management", "business analysis", "marketing", "job search", "resume", "career"]
+  },
+  {
+    id: "engineering",
+    title: "Engineering Foundations",
+    description: "Additional technical foundations that strengthen how I learn, analyze systems, and contribute across engineering teams.",
+    keywords: []
+  }
+];
+
 const FALLBACK_PORTFOLIO = {
   "profile": {
     "name": "Janlyn B. Rustila",
     "brand": "rustila.dev",
-    "role": "Computer Engineering OJT Candidate",
-    "headline": "Embedded Systems | AI + Robotics | IoT",
-    "summary": "Computer Engineering student who builds working prototypes across embedded systems, robotics, AI, networking, and automation. I am looking for an OJT role where I can help turn technical requirements into tested, documented, real-world solutions while learning from an engineering team.",
-    "status": "open for OJT / internship",
+    "role": "Computer Engineering Student & Network Surveillance Engineer Intern",
+    "headline": "Globe Telecom DSOC | Telecom & Network Operations | Cybersecurity",
+    "summary": "Computer Engineering student and Network Surveillance Engineer Intern at Globe Telecom, working with the Domain Service Operations Center (DSOC). I combine hands-on exposure to live telecom operations with certificate-backed knowledge across networking, cybersecurity, IT systems, cloud, data, AI, and embedded engineering.",
+    "status": "Globe Telecom DSOC intern",
     "location": "San Juan, Alaminos, Laguna, Philippines",
     "phone": "+63 976 353 2039",
     "email": "Rustilajanlyn@gmail.com",
     "school": "Lyceum of the Philippines University - Laguna",
     "focus": [
-      "Embedded + IoT prototyping",
-      "Python automation + AI workflows",
-      "Documentation + reliable delivery"
+      "Network surveillance + incident operations",
+      "Cybersecurity + SOC readiness",
+      "Automation + systems engineering"
     ],
     "valueProps": [
       {
-        "title": "Hands-on prototype builder",
-        "description": "Comfortable turning ideas into working systems using sensors, Raspberry Pi, microcontrollers, and real-time control logic."
+        "title": "Live telecom operations exposure",
+        "description": "Currently supports Globe Telecom DSOC workflows involving real-time network monitoring, incident tickets, troubleshooting, escalation, and coordination with technical teams."
       },
       {
-        "title": "Software-minded engineer",
-        "description": "Uses Python, C++, Java, SQL, and web fundamentals to connect hardware outputs to useful workflows, data, and interfaces."
+        "title": "Certificate-backed technical range",
+        "description": "Completed 100 credentials across cybersecurity, networking, IT support, cloud, databases, data, AI, software, and project operations, with uploaded evidence available in this portfolio."
       },
       {
-        "title": "Organized OJT teammate",
-        "description": "Brings leadership experience, careful documentation, and a learning mindset suited for engineering teams and technical operations."
+        "title": "Engineer who connects systems",
+        "description": "Combines operational discipline with hands-on projects in embedded systems, IoT, automation, computer vision, security, and machine learning."
       }
     ],
     "snapshot": [
       {
+        "label": "Current role",
+        "value": "Network Surveillance Engineer Intern, Globe Telecom DSOC."
+      },
+      {
         "label": "Best fit",
-        "value": "Embedded systems, IoT, robotics, AI tools, networking, or technical support roles."
+        "value": "Network operations, NOC/SOC, cybersecurity, IT infrastructure, telecom, and technical operations roles."
       },
       {
-        "label": "Can contribute",
-        "value": "Prototype testing, automation scripts, sensor workflows, data cleanup, technical documentation, and troubleshooting."
-      },
-      {
-        "label": "Work style",
-        "value": "Curious, detail-oriented, dependable, and willing to iterate until the system works."
+        "label": "Professional edge",
+        "value": "Live operations exposure supported by 100 credentials and practical engineering projects."
       }
     ],
-    "contactPitch": "Available for OJT, internship, and entry-level project collaboration in embedded systems, software, AI, IoT, networking, and technical operations.",
+    "contactPitch": "Currently gaining hands-on experience in Globe Telecom DSOC and open to future entry-level opportunities in network operations, NOC/SOC, cybersecurity, IT infrastructure, telecom, and systems engineering.",
     "socials": [
       {
         "label": "View LinkedIn",
@@ -77,36 +123,51 @@ const FALLBACK_PORTFOLIO = {
   },
   "stats": [
     {
-      "value": "6",
-      "label": "engineering projects",
-      "note": "Embedded, robotics, AI, security, and automation prototypes.",
+      "value": "DSOC",
+      "label": "active telecom intern",
+      "note": "Supporting live network surveillance and incident operations at Globe Telecom.",
       "order": 1
     },
     {
       "value": "100",
       "label": "certificates earned",
-      "note": "Uploaded credentials across cybersecurity, IT, networking, AI, data, cloud, and software.",
+      "note": "Verified learning across cybersecurity, networking, IT, cloud, data, AI, and software.",
       "order": 2
     },
     {
-      "value": "3",
-      "label": "technical domains",
-      "note": "Hardware integration, software automation, and network-aware systems.",
+      "value": "6",
+      "label": "engineering projects",
+      "note": "Applied work across embedded systems, IoT, AI, security, and automation.",
       "order": 3
     },
     {
-      "value": "OJT",
-      "label": "interview ready",
-      "note": "Prepared to contribute, document, test, and learn with a technical team.",
+      "value": "7+",
+      "label": "technical domains",
+      "note": "Telecom, networking, cybersecurity, systems, cloud, data, AI, and embedded engineering.",
       "order": 4
     }
   ],
   "experience": [
     {
+      "role": "Network Surveillance Engineer (DSOC Intern)",
+      "company": "Globe Telecom | Makati, National Capital Region, Philippines | On-site",
+      "period": "Apr 2026 - Present",
+      "description": "Works under the Domain Service Operations Center (DSOC), supporting real-time network performance monitoring, incident ticket handling, initial troubleshooting, and escalation processes. Gains hands-on experience with telecom systems, service management tools, and coordination across technical teams to help maintain service reliability.",
+      "tags": [
+        "network surveillance",
+        "incident ticketing",
+        "telecom operations",
+        "troubleshooting",
+        "escalation",
+        "cross-functional coordination"
+      ],
+      "order": 1
+    },
+    {
       "role": "YouTube Editor",
       "company": "Remote Work",
-      "period": "Jan 2021 - July 2021",
-      "description": "Produced edited video content for remote clients while managing files, deadlines, revisions, publishing schedules, and quality checks. This experience strengthened my discipline in communication, organized workflows, and delivering output with minimal supervision.",
+      "period": "Jan 2021 - Jul 2021",
+      "description": "Produced edited video content for remote clients while managing files, deadlines, revisions, publishing schedules, and quality checks. This experience strengthened discipline in communication, organized workflows, and delivering output with minimal supervision.",
       "tags": [
         "remote work",
         "deadline management",
@@ -114,7 +175,7 @@ const FALLBACK_PORTFOLIO = {
         "quality checks",
         "client communication"
       ],
-      "order": 1
+      "order": 2
     }
   ],
   "projects": [
@@ -220,51 +281,50 @@ const FALLBACK_PORTFOLIO = {
   ],
   "skills": [
     {
-      "title": "Embedded & IoT",
+      "title": "Telecom & Network Operations",
       "items": [
-        "Embedded Systems",
-        "Raspberry Pi",
-        "Microcontrollers",
-        "Sensors",
-        "Hardware-Software Integration",
-        "Robotics"
+        "Network Surveillance",
+        "Incident Ticketing",
+        "Troubleshooting & Escalation",
+        "Cisco Networking",
+        "Network Security",
+        "Service Operations"
       ],
       "order": 1
     },
     {
-      "title": "Software & Data",
+      "title": "Cybersecurity & SOC",
       "items": [
-        "Python",
-        "C++",
-        "Java",
-        "SQL",
-        "Visual Basic",
-        "HTML/CSS",
-        "Automation Scripts"
+        "Security Operations",
+        "Threat Investigation",
+        "Incident Response",
+        "Linux & SQL",
+        "Ethical Hacking Fundamentals",
+        "Risk & Compliance"
       ],
       "order": 2
     },
     {
-      "title": "AI, Network & Security",
+      "title": "Systems, Software & Data",
       "items": [
-        "Machine Learning",
-        "Image Processing",
-        "Cisco Networking",
-        "Data Analytics",
-        "Cybersecurity Fundamentals",
-        "Technical Troubleshooting"
+        "Python",
+        "SQL & Databases",
+        "Cloud Fundamentals",
+        "IT Support",
+        "System Administration",
+        "Automation Scripts"
       ],
       "order": 3
     },
     {
-      "title": "Professional Workflow",
+      "title": "Embedded, AI & Delivery",
       "items": [
-        "Documentation",
-        "Testing",
-        "Project Coordination",
-        "Remote Collaboration",
-        "Budget Tracking",
-        "Quality Checks"
+        "Embedded Systems & IoT",
+        "Raspberry Pi & Sensors",
+        "Machine Learning",
+        "Computer Vision",
+        "Documentation & Testing",
+        "Project Coordination"
       ],
       "order": 4
     }
@@ -1213,12 +1273,15 @@ function renderExperience(items = []) {
   const root = $("[data-experience]");
   clear(root);
   items.forEach(item => {
-    root.append(create("article", { className: "card" }, [
+    const isCurrent = (item.period || "").toLowerCase().includes("present");
+    const children = [
       create("p", { className: "meta", text: `${item.company || ""} | ${item.period || ""}` }),
       create("h3", { text: item.role || "" }),
       create("p", { text: item.description || "" }),
       renderTags(item.tags)
-    ]));
+    ];
+    if (isCurrent) children.unshift(create("span", { className: "current-role", text: "CURRENT EXPERIENCE" }));
+    root.append(create("article", { className: `card ${isCurrent ? "current-experience" : ""}` }, children));
   });
 }
 
@@ -1255,18 +1318,82 @@ function renderSkills(groups = []) {
   });
 }
 
+function getCertificateDomain(cert) {
+  const text = ` ${cert.issuer || ""} ${cert.name || ""} `.toLowerCase();
+  return CERTIFICATE_DOMAINS.find(domain =>
+    domain.keywords.some(keyword => text.includes(keyword))
+  ) || CERTIFICATE_DOMAINS[CERTIFICATE_DOMAINS.length - 1];
+}
+
+function getCertificateInsight(cert) {
+  const domain = getCertificateDomain(cert);
+  const insights = {
+    cybersecurity: "Supports practical readiness for security monitoring, investigation, response, and risk-aware operations.",
+    networking: "Strengthens the networking foundation used in service monitoring, troubleshooting, and telecom operations.",
+    "systems-cloud": "Builds working knowledge of the infrastructure and platforms behind reliable IT services.",
+    "data-software": "Develops the programming, data, and automation skills used to analyze and improve technical workflows.",
+    ai: "Expands my ability to apply AI and emerging tools responsibly to engineering and operational problems.",
+    professional: "Strengthens the communication, planning, and delivery habits required in cross-functional technical teams.",
+    engineering: "Adds another layer to my broad engineering foundation and continuous-learning discipline."
+  };
+  return insights[domain.id] || insights.engineering;
+}
+
+function renderCredentialDomains(items = []) {
+  const root = $("[data-credential-domains]");
+  if (!root) return;
+
+  clear(root);
+  CERTIFICATE_DOMAINS.forEach(domain => {
+    const certificates = items.filter(cert => getCertificateDomain(cert).id === domain.id);
+    if (!certificates.length) return;
+
+    const examples = certificates.slice(0, 3).map(cert => cert.name).join(" | ");
+    const card = create("button", {
+      className: `credential-domain ${state.certificateDomain === domain.id ? "active" : ""}`,
+      attrs: { type: "button", "data-domain": domain.id }
+    }, [
+      create("span", { className: "domain-count", text: String(certificates.length).padStart(2, "0") }),
+      create("span", { className: "domain-copy" }, [
+        create("strong", { text: domain.title }),
+        create("span", { text: domain.description }),
+        create("small", { text: examples })
+      ])
+    ]);
+
+    card.addEventListener("click", () => {
+      state.certificateDomain = state.certificateDomain === domain.id ? "" : domain.id;
+      state.showAllCertificates = Boolean(state.certificateDomain);
+      renderCredentialDomains(items);
+      renderCertifications(items);
+      $("[data-certifications]")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    root.append(card);
+  });
+}
+
 function renderCertifications(items = []) {
   const root = $("[data-certifications]");
   const summary = $("[data-cert-summary]");
+  const context = $("[data-cert-context]");
   const showAll = $("[data-cert-show-all]");
+  const clearFocus = $("[data-cert-clear]");
   const actions = showAll?.parentElement;
   const query = state.certificateQuery.trim().toLowerCase();
-  const filtered = query
-    ? items.filter(cert => `${cert.issuer || ""} ${cert.name || ""} ${cert.displayDate || cert.issueDate || ""}`.toLowerCase().includes(query))
-    : items;
+  const filtered = items.filter(cert => {
+    const matchesQuery = !query || `${cert.issuer || ""} ${cert.name || ""} ${cert.displayDate || cert.issueDate || ""}`.toLowerCase().includes(query);
+    const matchesDomain = !state.certificateDomain || getCertificateDomain(cert).id === state.certificateDomain;
+    return matchesQuery && matchesDomain;
+  });
   const visible = state.showAllCertificates || query ? filtered : filtered.slice(0, 12);
 
   clear(root);
+  if (!visible.length) {
+    root.append(create("p", {
+      className: "cert-empty",
+      text: "No certificates match this focus yet."
+    }));
+  }
   visible.forEach(cert => {
     const hasFile = Boolean(cert.credentialUrl || cert.pdfUrl);
     const card = create("button", {
@@ -1277,6 +1404,7 @@ function renderCertifications(items = []) {
       create("span", {}, [
         create("h3", { text: cert.name || "" }),
         create("p", { text: cert.displayDate || cert.issueDate || "" }),
+        create("p", { className: "cert-insight", text: getCertificateInsight(cert) }),
         create("p", { className: "cert-file", text: hasFile ? "View PDF" : "Credential listed" })
       ])
     ]);
@@ -1285,13 +1413,24 @@ function renderCertifications(items = []) {
   });
 
   if (summary) {
-    summary.textContent = query
+    summary.textContent = query || state.certificateDomain
       ? `${filtered.length} matching certificate${filtered.length === 1 ? "" : "s"}`
       : `${items.length} certificates and credentials`;
   }
 
+  if (context) {
+    const domain = CERTIFICATE_DOMAINS.find(item => item.id === state.certificateDomain);
+    context.textContent = domain
+      ? `${domain.title}: ${domain.description}`
+      : "Verified learning evidence across my technical focus areas.";
+  }
+
+  if (clearFocus) {
+    clearFocus.hidden = !state.certificateDomain && !query;
+  }
+
   if (showAll && actions) {
-    const hasMore = !query && items.length > 12;
+    const hasMore = !query && !state.certificateDomain && items.length > 12;
     actions.hidden = !hasMore;
     showAll.textContent = state.showAllCertificates ? "Show featured certificates" : `Show all ${items.length} certificates`;
   }
@@ -1334,6 +1473,7 @@ function renderPortfolio(data) {
   renderExperience(data.experience);
   renderProjects(data.projects);
   renderSkills(data.skills);
+  renderCredentialDomains(data.certifications);
   renderCertifications(data.certifications);
   renderLeadership(data.leadership);
   renderAppsScript(data);
@@ -1529,6 +1669,7 @@ function initModal() {
 function initCertificateControls() {
   const search = $("[data-cert-search]");
   const showAll = $("[data-cert-show-all]");
+  const clearFocus = $("[data-cert-clear]");
 
   search.addEventListener("input", event => {
     state.certificateQuery = event.target.value;
@@ -1537,6 +1678,15 @@ function initCertificateControls() {
 
   showAll.addEventListener("click", () => {
     state.showAllCertificates = !state.showAllCertificates;
+    renderCertifications(state.portfolio?.certifications || []);
+  });
+
+  clearFocus.addEventListener("click", () => {
+    state.certificateQuery = "";
+    state.certificateDomain = "";
+    state.showAllCertificates = false;
+    search.value = "";
+    renderCredentialDomains(state.portfolio?.certifications || []);
     renderCertifications(state.portfolio?.certifications || []);
   });
 }

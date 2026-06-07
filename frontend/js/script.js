@@ -64,7 +64,7 @@ const FALLBACK_PORTFOLIO = {
     "status": "Globe Telecom DSOC intern",
     "location": "San Juan, Alaminos, Laguna, Philippines",
     "phone": "+63 976 353 2039",
-    "email": "Rustilajanlyn@gmail.com",
+    "email": "janlynrustila01@gmail.com",
     "school": "Lyceum of the Philippines University - Laguna",
     "focus": [
       "Network surveillance + incident operations",
@@ -1253,6 +1253,7 @@ function renderHero(data) {
   $("[data-contact-location]").textContent = profile.location || "";
   $("[data-contact]").textContent = profile.contactPitch || `Based in ${profile.location || "Laguna, Philippines"}. Interested in embedded systems, software engineering, AI, IoT, networking, and technical operations roles.`;
   $("[data-footer-name]").textContent = `${profile.name || "Janlyn B. Rustila"} | ${profile.role || "Computer Engineering"} | ${profile.school || "LPU Laguna"}`;
+  $("[data-footer-email]").textContent = profile.email || "";
   $("[data-footer-contact]").textContent = `${profile.location || ""} | ${profile.phone || ""}`;
 }
 

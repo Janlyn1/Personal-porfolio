@@ -488,6 +488,8 @@ h1 span{display:block;color:var(--accent)}
 .contact-details a:hover{color:var(--accent)}
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-family:var(--mono);font-size:.78rem}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer-contact{display:grid;gap:3px;text-align:right}
+.footer-contact strong{color:var(--text);font-size:.82rem;overflow-wrap:anywhere}
 .admin-toggle{
   position:fixed;
   right:18px;
@@ -628,6 +630,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-f
   .project-card.featured{grid-column:auto}
   .band{padding:58px 0}
   .contact-card{align-items:start}
+  .footer-contact{text-align:left}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
